@@ -4,12 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./auth_modal.css" />
+    <script src="../../components/modals/passcode.js" type="module"></script>
+    <script src="../../components/modals/get-started.js" type="module"></script>
+    <script
+      src="../../components/modals/get-notified.js"
+      type="module"
+    ></script>
+    <script
+      src="../../components/modals/personalised-prof.js"
+      type="module"
+    ></script>
+    <script src="../../components/modals/all-set.js" type="module"></script>
     <title>Modals</title>
   </head>
   <body>
     <main class="startup-body">
+      <pass-code></pass-code>
+      <get-started></get-started>
+      <get-notified></get-notified>
+      <personalised-profile></personalised-profile>
+      <all-set></all-set>
+
+      <div>
+        <a href="../modal/settings_modal.html">Setting modal</a>
+      </div>
+      <div>
+        <a href="../../screens/dashboard/dashboard.html">Home</a>
+      </div>
       <!-- <h1>one time passcode</h1> -->
-      <div class="one-time-container">
+      <!-- <div class="one-time-container">
         <div class="exit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,10 +81,10 @@
             <p class="back-txt">Back</p>
           </div>
         </section>
-      </div>
+      </div> -->
 
       <!-- <h1>set up shareAm</h1> -->
-      <div class="startUp-container">
+      <!-- <div class="startUp-container">
         <div class="exit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -120,10 +143,10 @@
           </div>
           <button class="purple-btn-txt purple-btn">Get Started</button>
         </section>
-      </div>
+      </div> -->
 
       <!-- GET NOTIFIED MODAL -->
-      <div class="startUp-container">
+      <!-- <div class="startUp-container">
         <div class="exit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -218,10 +241,10 @@
             <p class="skip-txt">Skip</p>
           </div>
         </section>
-      </div>
+      </div> -->
 
       <!------START OF PERSONAL MODAL PAGE -->
-      <div class="startUp-container profie-modal">
+      <!-- <div class="startUp-container profie-modal">
         <div class="exit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -355,10 +378,10 @@
             <p class="skip-txt">Skip</p>
           </div>
         </section>
-      </div>
+      </div> -->
 
       <!--ALL SET MODAL -->
-      <div class="startUp-container">
+      <!-- <div class="startUp-container">
         <div class="exit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -410,16 +433,9 @@
             </div>
           </div>
         </section>
-      </div>
+      </div> -->
 
       <!-- <------- END OF PERSONAL MODAL PAGE ------->
-
-      <div>
-        <a href="../modal/settings_modal.html">Setting modal</a>
-      </div>
-      <div>
-        <a href="../../screens/dashboard/dashboard.html">Home</a>
-      </div>
     </main>
   </body>
 </html>
