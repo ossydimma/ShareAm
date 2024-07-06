@@ -49,18 +49,18 @@ main {
   display: flex;
   width: 100%;
   margin-top: 38px;
-  padding: 12px 0 0 11px;
+  padding: 12px 10px 0 11px;
 }
 
 
 
-.mainbody-left-side {
+#chats-container {
   width: 45%;
   height: 90vh;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 0 0 2vh 0;
+  padding: 0.8vh 0 2vh 0;
   margin-bottom: 1vh;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   min-width: 160px;
@@ -173,7 +173,7 @@ main {
   background: #f1f1f1;
 }
 
-.chat-list {
+.chat-wrapper {
   height: 60vh;
   overflow-y: auto;
 }
@@ -200,7 +200,7 @@ main {
   background: #14042c;
 }
 
-.left-side-div2-bottom {
+#chat-list {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -262,8 +262,6 @@ main {
   background: #494848;
 }
 
-
-
 .inactive {
   color: #979797;
 }
@@ -278,16 +276,21 @@ main {
   margin-top: -6px;
 }
 
-.mainbody-right-side {
+#chat-content{
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#back-icon {
+  display: none;
 }
 
 .right-side-div1 {
   display: flex;
   gap: 1vw;
   align-items: center;
+  justify-content: center;
 }
 
 .right-side-div1-left {
@@ -565,7 +568,7 @@ main {
     color: rgba(34, 32, 32, 0.9);
   }
 
-  .mainbody-left-side {
+  #chats-container {
     background: #222020;
   }
 
@@ -584,15 +587,12 @@ main {
   
   
   .mainbody {
-    background: #dad9d9;;
-    
-
+    background: #dad9d9;; 
   }
 
-  .mainbody-left-side {
+  #chats-container {
     background: #f4f1f8;
   }
-  
   
   .new-message-txt {
     color: #0272bc;
@@ -651,6 +651,8 @@ main {
   .user-details {
     display: block;
   }
+
+  
 }
 
 /* Large devices (laptops/desktops, 992px and down) */
@@ -660,21 +662,22 @@ main {
   }
 
   
+  
 
 }
 
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
   html {
-    font-size: 12px;
+    font-size: 15px;
   }
 
 
-  .user-details-div1 {
+  /* .user-details-div1 {
     height: 39px;
     width: 35px;
     border-radius: 100%;
-  }
+  } */
 
   /* .user-details-div1 img {
     height: 39px;
@@ -682,9 +685,18 @@ main {
     border-radius: 100%;
   } */
 
-  .mainbody-left-side {
-    display: none;
+  #chats-container {
+    /* display: none; */
+    width: 100%;
   }
+
+  #back-icon {
+    display: block;
+    cursor: pointer;
+    fill: #9a9a9a;
+  }
+
+  
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -694,6 +706,8 @@ main {
     flex-direction: column;
     gap: 15px;
   }
+
+  
 
   
 }

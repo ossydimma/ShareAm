@@ -1,14 +1,15 @@
-
 import { msgSample } from "../../../variables/mock_variables/mock_message.js";
 
-const chatDiv = document.querySelector(".left-side-div2-bottom");
-
+const chatList = document.getElementById("chat-list");
+// const favIcon = document.querySelectorAll(".bookmark");
+const backBtn = document.getElementById('back-icon');
+const chatCon = document.getElementById('chats-container');
+const chatBody = document.getElementById('chat-content');
 
 
 msgSample.forEach((item) => {
   const chatContain = document.createElement("div");
   chatContain.classList.add("user-div");
-
 
   chatContain.innerHTML = `
         <div class="user-details-div1">
@@ -94,20 +95,21 @@ msgSample.forEach((item) => {
                 fill="none"
                 class="bookmark"
             >
-                <g clip-path="url(#clip0_531_1267)">
+                <g clip-path="url(#clip0_531_1267)" >
                     <path
                     d="M3.64258 4.05137C3.64258 3.23744 3.93809 2.45684 4.46411 1.8813C4.99012 1.30576 5.70356 0.982422 6.44746 0.982422L17.667 0.982422C18.4109 0.982422 19.1243 1.30576 19.6503 1.8813C20.1763 2.45684 20.4718 3.23744 20.4718 4.05137V24.7668C20.4718 24.9056 20.4373 25.0417 20.3721 25.1608C20.3069 25.2798 20.2134 25.3773 20.1016 25.4428C19.9898 25.5083 19.8638 25.5394 19.7371 25.5328C19.6104 25.5261 19.4877 25.482 19.3821 25.4051L12.0572 21.0856L4.73227 25.4051C4.62668 25.482 4.504 25.5261 4.3773 25.5328C4.25061 25.5394 4.12464 25.5083 4.01282 25.4428C3.901 25.3773 3.80751 25.2798 3.74231 25.1608C3.67711 25.0417 3.64264 24.9056 3.64258 24.7668V4.05137ZM6.44746 2.5169C6.07551 2.5169 5.71879 2.67857 5.45578 2.96634C5.19277 3.25411 5.04502 3.64441 5.04502 4.05137V23.3336L11.6687 19.525C11.7838 19.4412 11.919 19.3965 12.0572 19.3965C12.1954 19.3965 12.3306 19.4412 12.4457 19.525L19.0694 23.3336V4.05137C19.0694 3.64441 18.9216 3.25411 18.6586 2.96634C18.3956 2.67857 18.0389 2.5169 17.667 2.5169H6.44746Z"
-                    fill-opacity="0.9"
+                    fill-opacity="0.9" 
+                    
                     />
                 </g>
                 <defs>
-                    <clipPath id="clip0_531_1267">
-                    <rect
-                        width="22.439"
-                        height="24.5516"
-                        fill="white"
-                        transform="translate(0.837891 0.982422)"
-                    />
+                    <clipPath id="clip0_531_1267" >
+                        <rect
+                            width="22.439"
+                            height="24.5516"
+                            fill="white"
+                            transform="translate(0.837891 0.982422)"
+                        />
                     </clipPath>
                 </defs>
             </svg>
@@ -116,20 +118,45 @@ msgSample.forEach((item) => {
        
     `;
 
-  chatDiv.appendChild(chatContain);
+  chatList.appendChild(chatContain);
 });
 
+const divs = document.querySelectorAll(".user-div");
 
 
-const divs = document.querySelectorAll(".user-div")
-
-divs.forEach((div, index) => {
+divs.forEach((div) => {
     div.addEventListener("click", ()=> {
 
-        divs.forEach(d => d.classList.remove('active'))
-        div.classList.add("active")
-        console.log(index)
+        divs.forEach(d => d.classList.remove('active'));
+
+        div.classList.add("active");
     
     })
+});
+
+//handling back arrow
+backBtn.addEventListener('click', ()=> {
+    chatBody.style.display = "none";
+    chatCon.style.display = "block";
 })
+
+// Event on window
+window.addEventListener("resize", ()=> {
+    if (window.innerWidth <= "768") {
+        
+        if (chatBody.style.display === "none") {
+            chatCon.style.display = "block";
+        } else {
+            chatBody.style.display = "block";
+            chatCon.style.display = "none";
+        }   
+
+    } else if (window.innerWidth > "768" ) {
+        chatCon.style.display = "block";
+        chatBody.style.display = "block";
+    }
+        
+})
+
+
 
