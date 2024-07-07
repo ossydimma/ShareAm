@@ -112,6 +112,7 @@ body {
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 3vh;
+   text-align: center;
 }
 
 .one-time-subtitle-txt {

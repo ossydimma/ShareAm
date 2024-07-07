@@ -1,9 +1,12 @@
-/* This removes padding & margin from every container */
-* {
+const template = document.createElement("template");
+template.innerHTML = `
+    <style>
+ * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 @font-face {
   font-family: poppins-bold;
   src: url(../../assets/fonts/Poppins-Bold.ttf);
@@ -21,25 +24,6 @@
   src: url(../../assets/fonts/Rubik-VariableFont_wght.ttf);
 }
 
-html {
-  font-size: 16px;
-}
-
-/* DO NOT REMOVE THE CODE ABOVE */
-body {
-  display: flex;
-  padding-top: 50px;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  user-select: none;
-  gap: 5vh;
-}
-
-/*-----NOTIFICATION BOX CSS----------- */
-
-/* <-------- START OF COLOR MODAL PAGE CSS --------> */
 .color-mode {
   width: 32vw;
   height: fit-content;
@@ -260,17 +244,8 @@ body {
   font-size: 1rem;
 }
 
-@media (max-width: 800px) {
-  html {
-    font-size: 12px;
-  }
-}
-
 /* ------------ LIGHT AND DARK MODE ----------- */
 @media (prefers-color-scheme: light) {
-  body {
-    background-color: #f1f1f1;
-  }
 
   .color-mode {
     background-color: #ffffff;
@@ -283,9 +258,6 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #2a282d;
-  }
 
   .color-mode {
     background-color: #a9a9a9;
@@ -296,3 +268,83 @@ body {
     background-color: #fff;
   }
 }
+
+
+  
+</style>
+
+<div class="color-mode">
+      <div class="preview">
+        <h3>Preview</h3>
+        <p class="preview-txt txt-white">Wow! Nice theme!</p>
+        <p class="preview-txt txt-blue">This is my favourite color</p>
+      </div>
+
+      <h3>Colour</h3>
+      <div class="color-pick-container">
+        <label class="color-pick color-pick-item1">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item2">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item3">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item4">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item5">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item6">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item7">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item8">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+        <label class="color-pick color-pick-item9">
+          <input type="radio" name="color" />
+          <span class="checkmark1"></span>
+        </label>
+      </div>
+
+      <div class="accessible-mode">
+        <h3>Accessibility Modes</h3>
+        <label class="container"
+          >High contrast light
+          <input type="radio" checked="checked" name="mode" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"
+          >High contrast Dark
+          <input type="radio" name="mode" />
+          <span class="checkmark2"></span>
+        </label>
+      </div>
+    </div>
+
+   
+`;
+
+class ColorsModal extends HTMLElement {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "closed" });
+    let clone = template.content.cloneNode(true);
+    shadowRoot.append(clone);
+  }
+}
+
+customElements.define("color-modal", ColorsModal);
