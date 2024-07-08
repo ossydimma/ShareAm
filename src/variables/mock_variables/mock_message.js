@@ -7,6 +7,7 @@ export const msgSample = [
         verified: true,
         deliveryTime: "yesterday",
         dispearing: true,
+        favChat: false,
         lastChat: "guy howfar na",
     },
 
@@ -18,6 +19,7 @@ export const msgSample = [
         verified: false,
         deliveryTime: "5/29/24",
         dispearing: false,
+        favChat: false,
         lastChat: "Break the ice, say hello!"
     },
 
@@ -29,6 +31,7 @@ export const msgSample = [
         verified: true,
         deliveryTime: "5/29/24",
         dispearing: false,
+        favChat: false,
         lastChat: "Break the ice, say hello!"
     }, 
 
@@ -40,6 +43,7 @@ export const msgSample = [
         verified: false,
         deliveryTime: "5/29/24",
         dispearing: true,
+        favChat: false,
         lastChat: "Eric dey look for you oo"
     },
 
@@ -51,6 +55,7 @@ export const msgSample = [
         verified: true,
         deliveryTime: "5/29/24",
         dispearing: false,
+        favChat: false,
         lastChat: "Break the ice, say hello!"
     },
 
@@ -63,6 +68,7 @@ export const msgSample = [
         verified: false,
         deliveryTime: "5/29/24",
         dispearing: true,
+        favChat: false,
         lastChat: "Are you done with your"
     },
 
@@ -74,6 +80,7 @@ export const msgSample = [
         verified: false,
         deliveryTime: "5/29/24",
         dispearing: true,
+        favChat: false,
         lastChat: "pull master howfar"
     }
 ]
