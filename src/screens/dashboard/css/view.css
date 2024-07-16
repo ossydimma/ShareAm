@@ -529,7 +529,7 @@ ul {
   padding-right: 1vw;
 }
 
-.chat-bubbles {
+.received-chat {
   margin-bottom: 18px;
 }
 
@@ -546,6 +546,23 @@ ul {
   height: 45px;
   flex-shrink: 0;
   border-radius: 53px;
+}
+
+.user-profile-pic-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 3.5px;
+  background: #cfdae2;
+  color: #fff;
+}
+
+.user-profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 3.5px;
 }
 
 .text-and-time-wrapper {
@@ -590,7 +607,7 @@ ul {
   background-position: center;
 }
 
-.you-chat-bubble {
+.sent-chat {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -890,7 +907,6 @@ input:checked + .slider:before {
     width: 5vw;
     height: 5vh;
   }
-
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -910,7 +926,6 @@ input:checked + .slider:before {
     width: 9vw;
     height: 6vh;
   }
-
 }
 
 @media (prefers-color-scheme: light) {
