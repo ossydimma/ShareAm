@@ -192,7 +192,7 @@ ul {
   object-position: 50% 50%;
 }
 
-.users-display {
+#users-display {
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -202,7 +202,7 @@ ul {
   right: 4%;
 }
 
-.caller-user {
+.call-participants {
   display: flex;
   background: #69508f;
   width: 4.5vw;
@@ -411,9 +411,9 @@ ul {
   padding: 1.5vh 2vw 1.5vh 2vw;
   height: 100%;
   width: 100%;
-  display: flex;
+  /* display: flex;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: column; */
 }
 
 .chat-box-header {
@@ -423,6 +423,12 @@ ul {
   border-bottom: 1px solid #585858;
   width: 100%;
   user-select: none;
+}
+
+.message-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .tab {

@@ -54,3 +54,29 @@ export const viewChatSample = [
     },
   },
 ];
+
+export const callParticipants = [
+  {
+    listener: {
+      image: "",
+      microphoneIcon: "",
+      recorederIcon: "",
+    },
+  },
+
+  {
+    speaker: {
+      image: "",
+      microphoneIcon: "",
+      recorederIcon: "",
+    },
+  },
+
+  {
+    listener: {
+      image: "",
+      microphoneIcon: "",
+      recorederIcon: "",
+    },
+  },
+];
