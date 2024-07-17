@@ -335,7 +335,7 @@ input:checked + label svg.moon {
   color: #fff;
 }
 
-.div1-contact-details-container {
+#schedule-div {
   display: flex;
   flex-direction: column;
   gap: 2vh;
@@ -563,8 +563,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 /*----GENERAL PROPERTIES FOR LANDING PAGE FOOTER----*/
-
-
 
 /* -----------------------------------------Texts stlyes ----------------------------------------- */
 
