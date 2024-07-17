@@ -9,7 +9,9 @@ calendarSample.forEach((item) => {
   scheduleDetail.innerHTML = `
         <div class="contact-details">
             <div class="contact-details1">
-                <h1 class="contact-details1-top">${item.name}</h1>
+                <h1 class="contact-details1-top">
+                    ${item.name ? item.name : item.username}
+                </h1>
                 <div class="contact-details1-bottom">
                     <div id="calender">
                         <svg
@@ -128,22 +130,43 @@ calendarSample.forEach((item) => {
                         <p>${item.time}</p>
                     </div>
                     <div id="status">
-                        <span id="status-icon"></span>
+                        <span id="status-icon" style="background-color: ${item.status === "confirmed" ? "#3cea43" : item.status === "awaiting" ? "orange" : "red"}"></span>
                         <p>${item.status}</p>
                     </div>
                 </div>
             </div>
-            <div class="contact-details2">
-                <img 
-                    src="${item.image}"
-                    alt="Contact's Profile Picture"
-                />
-            </div>
+                ${
+                  item.image
+                    ? `<div class="contact-details2">
+                            <img 
+                                src="${item.image}"
+                                alt="Contact's Profile Picture"
+                            />
+                        </div>`
+                    : `<div class="user-profile-pic-placeholder">NU</div>`
+                }
         </div>
         <div class="contact-details-actions">
             <div class="action-btn cancel-btn">Cancel</div>
             <div class="action-btn reschedule-btn">Reschedule</div>
         </div>
     `;
-    scheduleDiv.appendChild(scheduleDetail);
+  scheduleDiv.appendChild(scheduleDetail);
+
+//   const statusIcon = document.getElementById("status-icon");
+
+//   switch (item.status) {
+//     case "confirmed":
+//       statusIcon.style.backgroundColor = "#3cea43";
+//       break;
+//     case "awaiting":
+//         statusIcon.style.backgroundColor = "orange";
+//       break;
+//     case "cancelled":
+//         statusIcon.style.backgroundColor = "red";
+//       break;
+
+//     default:
+//       break;
+//   }
 });
