@@ -335,7 +335,7 @@ input:checked + label svg.moon {
   color: #fff;
 }
 
-.div1-contact-details-container {
+#schedule-div {
   display: flex;
   flex-direction: column;
   gap: 2vh;
@@ -376,6 +376,17 @@ input:checked + label svg.moon {
   gap: 1vw;
 }
 
+.user-profile-pic-placeholder {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #cfdae2;
+  color: #fff;
+}
+
 #calender,
 #time,
 #status {
@@ -388,7 +399,7 @@ input:checked + label svg.moon {
 }
 
 #status-icon {
-  background-color: #3cea43;
+  /* background-color: #3cea43; */
   width: 7px;
   height: 7px;
   border-radius: 7px;
@@ -563,8 +574,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 /*----GENERAL PROPERTIES FOR LANDING PAGE FOOTER----*/
-
-
 
 /* -----------------------------------------Texts stlyes ----------------------------------------- */
 

@@ -396,13 +396,19 @@ input:checked + .slider:before {
   padding: 63px 7% 61px 7%;
 }
 
+::part(blueButton) {
+  border: 1px solid #e4e4e4;
+  background: #1058e8;
+  color: #fff;
+}
+
 .delete-btn {
   width: 145.406px;
   height: 40px;
   flex-shrink: 0;
   border-radius: 60px;
   border: 1px solid #f52b1e;
-  background: #e4e4e4;
+  background: #fff;
   color: #f52b1e;
   font-size: 1rem;
   font-weight: 400;

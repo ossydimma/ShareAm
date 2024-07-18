@@ -123,23 +123,6 @@ msgSample.forEach((item) => {
 
 const divs = document.querySelectorAll(".user-div");
 
-
-divs.forEach((div) => {
-    div.addEventListener("click", ()=> {
-
-        divs.forEach(d => d.classList.remove('active'));
-
-        div.classList.add("active");
-    
-    })
-});
-
-//handling back arrow
-backBtn.addEventListener('click', ()=> {
-    chatBody.style.display = "none";
-    chatCon.style.display = "block";
-})
-
 // Event on window
 window.addEventListener("resize", ()=> {
     if (window.innerWidth <= "768") {
@@ -157,6 +140,36 @@ window.addEventListener("resize", ()=> {
     }
         
 })
+
+
+divs.forEach((div) => {
+    div.addEventListener("click", ()=> {
+
+        //removing the active class
+        divs.forEach(d => d.classList.remove('active'));
+
+        //adding active class
+        div.classList.add("active");
+
+        if (chatBody.style.display === "none") {
+            chatCon.style.display = "none";
+            chatBody.style.display = "block"
+        }
+
+    
+    })
+});
+
+//handling back arrow
+backBtn.addEventListener('click', ()=> {
+    chatBody.style.display = "none";
+    chatCon.style.display = "block";
+
+    //removing th active class
+    divs.forEach(d => d.classList.remove('active'));
+})
+
+
 
 
 

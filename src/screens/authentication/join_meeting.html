@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./../common/control-bar.css" />
+    <script src="../../components/authButtons.js"></script>
   </head>
 
   <body>
@@ -184,6 +185,9 @@
           <button class="btn-login" onclick="gotohome()" type="submit">
             Start a Meeting
           </button>
+          <!-- <auth-buttons onclick="gotohome()">
+            <p slot="message">Start a Meeting</p>
+          </auth-buttons> -->
           <div class="links" style="text-align: center;">
             Already have an account? <a href="./login.html">Log In </a>
          
@@ -201,9 +205,12 @@
               <label for="meeting_id">Enter link to start meeting:</label>
               <input type="text" id="meeting_id" required />
             </div>
-            <button class="btn-login" onclick="gotohome()" type="submit">
+            <!-- <button class="btn-login" onclick="gotohome()" type="submit">
               Join
-            </button>
+            </button> -->
+            <auth-buttons onclick="gotohome()">
+              <p slot="message">Join</p>
+            </auth-buttons>
           </form>
           <div class="links">
             Don’t have an account? <a href="./signup.html">Sign Up </a>
