@@ -420,15 +420,72 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid #585858;
+  border-bottom: 2px solid #5f5f5f;
   width: 100%;
   user-select: none;
 }
 
-.message-section {
+#message-section {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+#participant-section {
+  display: none;
+}
+
+#participant-section h4 {
+  font-family: Rubik;
+  color: #9c9a9a;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 2vh;
+}
+
+.participant-list {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
+}
+
+.each-participant {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  font-family: Poppins-regular;
+  color: #dad9d9;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.participant-pic {
+  position: relative;
+}
+
+#green-circle {
+  position: absolute;
+  right: 4%;
+  bottom: 22%;
+  width: 7px;
+  height: 7px;
+  background-color: #3cea43;
+  border-radius: 100%;
+  border: 0.5px solid #ffffff;
+}
+
+.each-participant img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0.5px solid #a9a9a9;
+}
+
+.mic-ellipsis {
+  display: flex;
+  margin-left: auto;
+  gap: 1.5vw;
 }
 
 .tab {
@@ -436,6 +493,8 @@ ul {
   padding: 0.5vh 1vw;
   border-radius: 8px;
   margin-bottom: 1vh;
+  background: none;
+  border: none;
 }
 
 .tab:hover {
@@ -444,7 +503,7 @@ ul {
 }
 
 .active-tab-background {
-  border-bottom: 3px solid #585858;
+  border-bottom: 3px solid #5f5f5f;
 }
 
 .graphics-wrapper {
@@ -837,6 +896,11 @@ input:checked + .slider:before {
     width: 4vw;
     height: 7vh;
   }
+
+  .call-participants {
+    width: 4.8vw;
+    height: 8vh;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1085px and up) */
@@ -848,6 +912,18 @@ input:checked + .slider:before {
   .wave {
     width: 5vw;
     height: 7vh;
+  }
+
+  .each-participant img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #green-circle {
+    right: 5%;
+    bottom: 22%;
+    width: 6px;
+    height: 6px;
   }
 }
 
@@ -864,6 +940,23 @@ input:checked + .slider:before {
 
   #activities-btn {
     display: block;
+  }
+
+  .each-participant img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #green-circle {
+    right: 2%;
+    bottom: 22%;
+    width: 5px;
+    height: 5px;
+  }
+
+  .call-participants {
+    width: 5vw;
+    height: 7.5vh;
   }
 }
 
@@ -913,6 +1006,11 @@ input:checked + .slider:before {
     width: 5vw;
     height: 5vh;
   }
+
+  .call-participants {
+    width: 6vw;
+    height: 7.5vh;
+  }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -931,6 +1029,11 @@ input:checked + .slider:before {
   .wave {
     width: 9vw;
     height: 6vh;
+  }
+
+  .call-participants {
+    width: 6.5vw;
+    height: 7.5vh;
   }
 }
 

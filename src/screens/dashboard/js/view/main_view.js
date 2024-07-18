@@ -171,3 +171,41 @@ const handleChatBoxDisplay = () => {
 handleChatBoxDisplay();
 
 window.addEventListener("resize", handleChatBoxDisplay);
+
+//-------- MESSAGE AND PARTICIPANT TOGGLE --------//
+
+// const openParticipant = document.getElementById("participant-section");
+// openParticipant.classList.toggle("open-participant");
+
+// const closeMessage = document.getElementById("message-section");
+
+// messagePage();
+// participantPage();
+
+// let currentPage = () => {};
+// openParticipant.classList.toggle("open-participant");
+
+// const openParticipant = document.getElementById("participant-section");
+
+// const closeMessage = document.getElementById("message-section");
+
+// document.querySelector(".msg-btn").addEventListener("click", messagePage);
+
+// document.querySelector(".part-btn").addEventListener("click", participantPage);
+
+// function messagePage() {
+//   openParticipant.style.display = "none"
+//     ? (closeMessage.style.display = "block")
+//     : (openParticipant.style.display = "none");
+// }
+
+// function participantPage() {
+//   closeMessage.style.display = "none"
+//     ? (openParticipant.style.display = "block")
+//     : (closeMessage.style.display = "none");
+// }
+
+// participantPage();
+// messagePage();
+
+// console.log(openParticipant);
