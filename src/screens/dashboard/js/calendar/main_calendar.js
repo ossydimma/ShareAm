@@ -130,7 +130,13 @@ calendarSample.forEach((item) => {
                         <p>${item.time}</p>
                     </div>
                     <div id="status">
-                        <span id="status-icon" style="background-color: ${item.status === "confirmed" ? "#3cea43" : item.status === "awaiting" ? "orange" : "red"}"></span>
+                        <span id="status-icon" style="background-color: ${
+                          item.status === "confirmed"
+                            ? "#3cea43"
+                            : item.status === "awaiting"
+                            ? "orange"
+                            : "red"
+                        }"></span>
                         <p>${item.status}</p>
                     </div>
                 </div>
@@ -152,12 +158,11 @@ calendarSample.forEach((item) => {
         </div>
     `;
   scheduleDiv.appendChild(scheduleDetail);
-
 });
 
 const textArea = document.getElementById("textarea");
 const counterCharacters = document.querySelector(".input-limit-text");
 
 textArea.oninput = function () {
-    counterCharacters.innerHTML = textArea.value.length;
-}
+  counterCharacters.innerHTML = textArea.value.length;
+};

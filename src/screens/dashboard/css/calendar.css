@@ -557,9 +557,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .counter {
   float: right;
   display: flex;
-}
-
-.input-limit-text {
   font-family: poppins-regular;
   font-size: 0.9vw;
   margin-right: 0.1vw;
