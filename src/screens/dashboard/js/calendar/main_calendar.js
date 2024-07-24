@@ -153,20 +153,11 @@ calendarSample.forEach((item) => {
     `;
   scheduleDiv.appendChild(scheduleDetail);
 
-//   const statusIcon = document.getElementById("status-icon");
-
-//   switch (item.status) {
-//     case "confirmed":
-//       statusIcon.style.backgroundColor = "#3cea43";
-//       break;
-//     case "awaiting":
-//         statusIcon.style.backgroundColor = "orange";
-//       break;
-//     case "cancelled":
-//         statusIcon.style.backgroundColor = "red";
-//       break;
-
-//     default:
-//       break;
-//   }
 });
+
+const textArea = document.getElementById("textarea");
+const counterCharacters = document.querySelector(".input-limit-text");
+
+textArea.oninput = function () {
+    counterCharacters.innerHTML = textArea.value.length;
+}

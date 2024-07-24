@@ -294,8 +294,15 @@
                       <form class="schedule-purpose">
                         <p class="purpose-text">Purpose of schedule</p>
                         <div class="schedule-purpose-input-wrap">
-                          <textarea class="schedule-purpose-input"></textarea>
-                          <p class="input-limit-text">0/80</p>
+                          <textarea name="text" 
+                          maxlength="80"
+                          class="schedule-purpose-input"
+                          id="textarea"></textarea>
+                          <div class="counter">
+                            <p class="input-limit-text">0</p>
+                            /
+                            <p>80</p>
+                          </div>
                         </div>
                       </form>
                       <button id="done-btn">Done</button>
