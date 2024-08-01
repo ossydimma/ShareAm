@@ -1,6 +1,16 @@
-import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
+const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
 
-const chatBubblesWrapper = document.querySelector(".chat-bubbles-wrapper");
+const participantsDisplay = document.getElementById("users-display");
+
+const chatBox = document.getElementById("chat-box");
+
+const activitiesBtn = document.getElementById("activities-btn");
+
+const tabs = document.querySelectorAll(".tab");
+
+const tabsContents = document.querySelectorAll(".tab-content");
+
+import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
 
 viewChatSample.forEach((item) => {
   if (Object.keys(item).pop() === "sent") {
@@ -57,7 +67,6 @@ viewChatSample.forEach((item) => {
 // ------------ Users display ----------//
 
 import { callParticipants } from "./../../../../variables/mock_variables/mock_view.js";
-const participantsDisplay = document.getElementById("users-display");
 
 callParticipants.forEach((item) => {
   if (Object.keys(item).pop() === "listener") {
@@ -149,8 +158,6 @@ callParticipants.forEach((item) => {
 });
 
 // -----------ChatBox toggle and display ------------ //
-const chatBox = document.getElementById("chat-box");
-const activitiesBtn = document.getElementById("activities-btn");
 
 const handleChatBoxToggle = () => {
   chatBox.classList.toggle("display-chat-box");
@@ -174,38 +181,16 @@ window.addEventListener("resize", handleChatBoxDisplay);
 
 //-------- MESSAGE AND PARTICIPANT TOGGLE --------//
 
-// const openParticipant = document.getElementById("participant-section");
-// openParticipant.classList.toggle("open-participant");
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", (e) => {
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
 
-// const closeMessage = document.getElementById("message-section");
-
-// messagePage();
-// participantPage();
-
-// let currentPage = () => {};
-// openParticipant.classList.toggle("open-participant");
-
-// const openParticipant = document.getElementById("participant-section");
-
-// const closeMessage = document.getElementById("message-section");
-
-// document.querySelector(".msg-btn").addEventListener("click", messagePage);
-
-// document.querySelector(".part-btn").addEventListener("click", participantPage);
-
-// function messagePage() {
-//   openParticipant.style.display = "none"
-//     ? (closeMessage.style.display = "block")
-//     : (openParticipant.style.display = "none");
-// }
-
-// function participantPage() {
-//   closeMessage.style.display = "none"
-//     ? (openParticipant.style.display = "block")
-//     : (closeMessage.style.display = "none");
-// }
-
-// participantPage();
-// messagePage();
-
-// console.log(openParticipant);
+    tabsContents.forEach((content) => {
+      content.classList.remove("active");
+    });
+    tabsContents[index].classList.add("active");
+  });
+});
