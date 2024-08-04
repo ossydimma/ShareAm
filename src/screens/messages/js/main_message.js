@@ -1,10 +1,14 @@
 import { msgSample } from "../../../variables/mock_variables/mock_message.js";
 
 const chatList = document.getElementById("chat-list");
-// const favIcon = document.querySelectorAll(".bookmark");
 const backBtn = document.getElementById('back-icon');
 const chatCon = document.getElementById('chats-container');
 const chatBody = document.getElementById('chat-content');
+const activeUserImg = document.getElementById('active-userimage');
+const activeUserName = document.getElementById('active-username');
+const activeUsermsg = document.getElementById('blue-text');
+const activeUserDate = document.getElementById('active-userdate');
+const placeHolder = document.getElementById('placeholder');
 
 
 msgSample.forEach((item) => {
@@ -17,6 +21,7 @@ msgSample.forEach((item) => {
                item.image
                  ? `
                 <img
+                    id="user-image"
                     src="${item.image}"
                     alt="User Profile Pic"
                 />
@@ -54,17 +59,17 @@ msgSample.forEach((item) => {
                     
                 </section>
 
-                <p class="date-text">${item.deliveryTime}</p>
+                <p id="date-text">${item.deliveryTime}</p>
             </div>
 
-            <div>
+            <div id="msg">
                 ${
                   item.dispearing
                     ? `
                     <svg
                         // fill="#0490ec"
                         viewBox="0 0 24 24"
-                        id="Layer_1"
+                        id="disapearing-icon"
                         data-name="Layer 1"
                         width="14px"
                         xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +126,7 @@ msgSample.forEach((item) => {
   chatList.appendChild(chatContain);
 });
 
-const divs = document.querySelectorAll(".user-div");
+const chats = document.querySelectorAll(".user-div");
 
 // Event on window
 window.addEventListener("resize", ()=> {
@@ -142,18 +147,44 @@ window.addEventListener("resize", ()=> {
 })
 
 
-divs.forEach((div) => {
-    div.addEventListener("click", ()=> {
+chats.forEach((chat) => {
+    chat.addEventListener("click", ()=> {
 
         //removing the active class
-        divs.forEach(d => d.classList.remove('active'));
+        chats.forEach(d => d.classList.remove('active'));
 
         //adding active class
-        div.classList.add("active");
+        chat.classList.add("active");
 
+        //getting active Elements
+        const userimg = chat.querySelector("#user-image");
+        const username = chat.querySelector(".friends-display-name-text").textContent;
+        const userdevliverytime = chat.querySelector("#date-text").textContent;
+        const dispearingIcon = chat.querySelector("#disapearing-icon");
+
+        // activeUserImg.setAttribute("src", userimg );
+        activeUserName.textContent = username;
+        activeUserDate.textContent = userdevliverytime;
+
+        // checking img
+        if(!userimg) { 
+            activeUserImg.style.display = "none";
+            placeHolder.style.display = "flex";
+            
+        } else {
+            placeHolder.style.display = "none";
+            activeUserImg.style.display = "block";
+            const source = userimg.getAttribute('src');
+            activeUserImg.setAttribute('src', source);
+        }
+
+        //checking disappering message
+        !dispearingIcon ? activeUsermsg.textContent = "Message" : activeUsermsg.textContent = "Dissapearing Message";
+
+        //checking chat list
         if (chatBody.style.display === "none") {
             chatCon.style.display = "none";
-            chatBody.style.display = "block"
+            chatBody.style.display = "block";
         }
 
     
@@ -166,7 +197,7 @@ backBtn.addEventListener('click', ()=> {
     chatCon.style.display = "block";
 
     //removing th active class
-    divs.forEach(d => d.classList.remove('active'));
+    chats.forEach(c => c.classList.remove('active'));
 })
 
 

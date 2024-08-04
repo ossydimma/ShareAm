@@ -482,7 +482,7 @@ main {
 }
 
 .message-text,
-.date-text,
+#date-text,
 .dark-disappear-text,
 .disappear-text,
 .disappear-text span {
@@ -491,7 +491,7 @@ main {
   line-height: 20px;
   
 }
-.date-text,
+#date-text,
 .disappear-text
 {
   color: #979797;
@@ -513,6 +513,10 @@ main {
   color: #686868;
   font-family: Poppins-regular;
 } */
+
+#placeholder {
+  display: none;
+}
 
 .disappear-text span {
   font-family: Poppins-regular;
