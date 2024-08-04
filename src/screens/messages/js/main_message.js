@@ -162,11 +162,11 @@ chats.forEach((chat) => {
         const userdevliverytime = chat.querySelector("#date-text").textContent;
         const dispearingIcon = chat.querySelector("#disapearing-icon");
 
-        // activeUserImg.setAttribute("src", userimg );
+        // changing textcontent
         activeUserName.textContent = username;
         activeUserDate.textContent = userdevliverytime;
 
-        // checking img
+        // checking img & setting img source
         if(!userimg) { 
             activeUserImg.style.display = "none";
             placeHolder.style.display = "flex";
@@ -178,7 +178,7 @@ chats.forEach((chat) => {
             activeUserImg.setAttribute('src', source);
         }
 
-        //checking disappering message
+        //checking disappering message & changing text content
         !dispearingIcon ? activeUsermsg.textContent = "Message" : activeUsermsg.textContent = "Dissapearing Message";
 
         //checking chat list
