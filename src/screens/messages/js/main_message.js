@@ -1,15 +1,17 @@
 import { msgSample } from "../../../variables/mock_variables/mock_message.js";
 
 const chatList = document.getElementById("chat-list");
-const backBtn = document.getElementById('back-icon');
-const chatCon = document.getElementById('chats-container');
-const chatBody = document.getElementById('chat-content');
-const activeUserImg = document.getElementById('active-userimage');
-const activeUserName = document.getElementById('active-username');
-const activeUsermsg = document.getElementById('blue-text');
-const activeUserDate = document.getElementById('active-userdate');
-const placeHolder = document.getElementById('placeholder');
+const backBtn = document.getElementById("back-icon");
+const chatCon = document.getElementById("chats-container");
+const chatBody = document.getElementById("chat-content");
+const welcomeSec = document.getElementById("welcome-sec");
+const activeUserImg = document.getElementById("active-userimage");
+const activeUserName = document.getElementById("active-username");
+const activeUsermsg = document.getElementById("blue-text");
+const activeUserDate = document.getElementById("active-userdate");
+const placeHolder = document.getElementById("placeholder");
 
+let clicked = false;
 
 msgSample.forEach((item) => {
   const chatContain = document.createElement("div");
@@ -129,78 +131,83 @@ msgSample.forEach((item) => {
 const chats = document.querySelectorAll(".user-div");
 
 // Event on window
-window.addEventListener("resize", ()=> {
-    if (window.innerWidth <= "768") {
-        
-        if (chatBody.style.display === "none") {
-            chatCon.style.display = "block";
-        } else {
-            chatBody.style.display = "block";
-            chatCon.style.display = "none";
-        }   
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= "768") {
+    welcomeSec.style.display = "none";
 
-    } else if (window.innerWidth > "768" ) {
-        chatCon.style.display = "block";
-        chatBody.style.display = "block";
+    if (clicked) {
+      chatBody.style.display = "block";
+      chatCon.style.display = "none";
+    } else {
+      chatCon.style.display = "block";
     }
-        
-})
+  } else {
+    if (!clicked) {
+      welcomeSec.style.display = "flex";
+    } else {
+      chatCon.style.display = "block";
+    }
+  }
+});
 
+const handleChatClick = (parent) => {
+  //getting active Elements
+  const userimg = parent.querySelector("#user-image");
+  const username = parent.querySelector(
+    ".friends-display-name-text"
+  ).textContent;
+  const userdevliverytime = parent.querySelector("#date-text").textContent;
+  const dispearingIcon = parent.querySelector("#disapearing-icon");
+
+  // changing textcontent
+  activeUserName.textContent = username;
+  activeUserDate.textContent = userdevliverytime;
+
+  // checking img & setting img source
+  if (!userimg) {
+    activeUserImg.style.display = "none";
+    placeHolder.style.display = "flex";
+  } else {
+    placeHolder.style.display = "none";
+    activeUserImg.style.display = "block";
+    const source = userimg.getAttribute("src");
+    activeUserImg.setAttribute("src", source);
+  }
+
+  //checking disappering message & changing text content
+  !dispearingIcon
+    ? (activeUsermsg.textContent = "Message")
+    : (activeUsermsg.textContent = "Dissapearing Message");
+
+  welcomeSec.style.display = "none";
+  chatBody.style.display = "block";
+
+  if (window.innerWidth <= "768") {
+    chatBody.style.display = "block";
+    chatCon.style.display = "none";
+  }
+};
 
 chats.forEach((chat) => {
-    chat.addEventListener("click", ()=> {
+  chat.addEventListener("click", () => {
+    clicked = true;
 
-        //removing the active class
-        chats.forEach(d => d.classList.remove('active'));
+    //removing the active class
+    chats.forEach((d) => d.classList.remove("active"));
 
-        //adding active class
-        chat.classList.add("active");
+    //adding active class
+    chat.classList.add("active");
 
-        //getting active Elements
-        const userimg = chat.querySelector("#user-image");
-        const username = chat.querySelector(".friends-display-name-text").textContent;
-        const userdevliverytime = chat.querySelector("#date-text").textContent;
-        const dispearingIcon = chat.querySelector("#disapearing-icon");
-
-        // changing textcontent
-        activeUserName.textContent = username;
-        activeUserDate.textContent = userdevliverytime;
-
-        // checking img & setting img source
-        if(!userimg) { 
-            activeUserImg.style.display = "none";
-            placeHolder.style.display = "flex";
-            
-        } else {
-            placeHolder.style.display = "none";
-            activeUserImg.style.display = "block";
-            const source = userimg.getAttribute('src');
-            activeUserImg.setAttribute('src', source);
-        }
-
-        //checking disappering message & changing text content
-        !dispearingIcon ? activeUsermsg.textContent = "Message" : activeUsermsg.textContent = "Dissapearing Message";
-
-        //checking chat list
-        if (chatBody.style.display === "none") {
-            chatCon.style.display = "none";
-            chatBody.style.display = "block";
-        }
-
-    
-    })
+    handleChatClick(chat);
+  });
 });
 
 //handling back arrow
-backBtn.addEventListener('click', ()=> {
-    chatBody.style.display = "none";
-    chatCon.style.display = "block";
+backBtn.addEventListener("click", () => {
+  clicked = false;
+  chatBody.style.display = "none";
+  chatCon.style.display = "block";
 
-    //removing th active class
-    chats.forEach(c => c.classList.remove('active'));
-})
-
-
-
-
-
+  //removing th active class
+  chats.forEach((c) => c.classList.remove("active"));
+});
