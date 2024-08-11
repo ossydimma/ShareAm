@@ -43,7 +43,6 @@ template.innerHTML = `
 
     input:checked + .slider:before {
       background-color: #150aa1;
-      /* border: solid 2px white; */
     }
 
     input:focus + .slider {
@@ -75,7 +74,7 @@ template.innerHTML = `
   <div>
 
     <label class="switch">
-     <input type="checkbox" part="check">
+     <input type="checkbox" part="check" id="check">
      <span class="slider round "></span>
     </label>
   
@@ -83,13 +82,45 @@ template.innerHTML = `
 `;
 
 class ToggleButton extends HTMLElement {
+  check;
+  state = false;
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({ mode: "closed" });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     let clone = template.content.cloneNode(true);
     shadowRoot.append(clone);
   }
+
+  static get observedAttribute() {
+    return ["name"];
+  }
+
+  get name() {
+    return this.getAttribute("name");
+  }
+  // set name(value) {
+  //   return this.setAttribute("name", value);
+  // }
+
+  connectedCallback() {
+    this.check = this.shadowRoot.getElementById("check");
+    this.check.addEventListener("click", this.handleCheck);
+  }
+
+  handleCheck = () => {
+    if (this.state) {
+      this.state = false;
+    } else {
+      this.state = true;
+    }
+    const value = {};
+    value[this.name] = this.state;
+    console.log(value);
+    console.log(this.state);
+
+    console.log(this.name);
+  };
 }
 
 customElements.define("toggle-button", ToggleButton);
