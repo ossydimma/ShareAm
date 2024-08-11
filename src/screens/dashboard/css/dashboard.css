@@ -32,15 +32,16 @@ html {
 /* **************************** LANDING PAGE DASHBOARD ****************************************/
 
 body {
+  display: flex;
   user-select: none;
   height: 100vh;
 }
 
-.landing-page-container {
-  display: flex;
-}
-
 /************* LEFT-AND-CARD GENERAL CSS ****************/
+
+.left-card-footer {
+  width: 100%;
+}
 
 .left-and-card {
   display: flex;
@@ -184,7 +185,8 @@ input:checked + label svg.moon {
   height: 44%;
 }
 
-.chat-wrapper {
+#chat-wrapper,
+#favorite-wrapper {
   height: 80%;
   overflow-y: scroll;
   display: flex;
@@ -220,7 +222,7 @@ input:checked + label svg.moon {
   gap: 15px;
 }
 
-.section-2-div1-new-user-profile-pic {
+.user-profile-pic-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,6 +231,12 @@ input:checked + label svg.moon {
   border-radius: 3.5px;
   background: #cfdae2;
   color: #fff;
+}
+
+.user-profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 3.5px;
 }
 
 .section-3-container {
@@ -298,60 +306,6 @@ input:checked + label svg.moon {
   padding-left: 1vw;
   border: none;
   outline: none;
-}
-
-.popup-notification-container {
-  height: 49px;
-  /* margin-top: 2vh; */
-  display: block;
-}
-
-.popup-notification {
-  display: flex;
-  width: 100%;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1vw;
-  gap: 3vw;
-  border-radius: 18px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .popup-notification {
-    background: linear-gradient(
-      90deg,
-      #f1f1f1 1.22%,
-      rgba(228, 208, 249, 0) 100%
-    );
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .popup-notification {
-    background: linear-gradient(
-      90deg,
-      #a0a0f6 1.22%,
-      rgba(228, 208, 249, 0) 100%
-    );
-  }
-}
-
-.verified-icon {
-  height: 40px;
-}
-
-.popup-message {
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8vw;
-}
-
-.close-popup-btn {
-  height: 28px;
-  cursor: pointer;
 }
 
 .card-action-section-container {
@@ -427,44 +381,6 @@ input:checked + label svg.moon {
 
 /*----GENERAL PROPERTIES FOR LANDING PAGE FOOTER----*/
 
-.footer-container {
-  display: flex;
-  height: 7vh;
-  padding-right: 3vw;
-  align-items: center;
-  border-radius: 0 5px 0 0;
-  background-image: url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg"),
-    url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg"),
-    url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg");
-
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-
-  background-position: top 1vh right 2vw, top 4vh right 12vw, top 1vh right 20vw,
-    top 3.7vh right 27vw, top 3vh right 34vw, top 4vh right 45vw,
-    top 3vh right 52vw, top 2vh right 60vw, top 2vh right 70vw,
-    top 3.5vh right 80vw, top 4vh right 90vw, top 3.7vh right 97vw;
-  background-size: 30px;
-}
-
-/*----LIGHT AND DARK MODE FOR LANDING PAGE FOOTER----*/
-.light-footer-container {
-  background-color: #22074a;
-}
-
-.dark-footer-container {
-  background-color: #181918;
-}
-
 /* -----------------------------------------Texts stlyes ----------------------------------------- */
 .desktop-title-text {
   color: #fff;
@@ -538,12 +454,12 @@ input:checked + label svg.moon {
   font-weight: 500;
 }
 
-.popup-txt {
+/* .popup-txt {
   color: #000;
   font-family: poppins-regular;
   font-size: 1rem;
   font-weight: 600;
-}
+} */
 
 .cta-text {
   text-align: center;
@@ -573,14 +489,14 @@ input:checked + label svg.moon {
   font-family: poppins-regular;
 }
 
-.time-txt {
+#time-txt {
   color: #0272bc;
   font-family: poppins-medium;
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.date-txt {
+#date-txt {
   color: #0272bc;
   font-family: poppins-regular;
   font-size: 1rem;
@@ -934,9 +850,6 @@ input:checked + label svg.moon {
   .search-box-input {
     background-color: #cecccc;
   }
-  .footer-container {
-    background-color: #1f201f;
-  }
 }
 @media (prefers-color-scheme: light) {
   header {
@@ -970,8 +883,5 @@ input:checked + label svg.moon {
   }
   .search-box-input {
     background-color: #fff;
-  }
-  .footer-container {
-    background-color: #22074a;
   }
 }

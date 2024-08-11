@@ -298,47 +298,13 @@ input:checked + label svg.moon {
   outline: none;
 }
 
-.popup-notification-container {
-  height: 49px;
-  /* margin-top: 2vh; */
-  display: block;
-}
-
-.popup-notification {
-  display: flex;
-  width: 100%;
-  height: 49px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1vw;
-  gap: 3vw;
-  border-radius: 18px;
-}
-
-.verified-icon {
-  height: 40px;
-}
-
-.popup-message {
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8vw;
-}
-
-.close-popup-btn {
-  height: 28px;
-  cursor: pointer;
-}
-
 .card-action-section-container {
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-.card-action-section-div1 {
+.tab-content-box {
   height: 63vh;
   overflow-y: auto;
 }
@@ -358,18 +324,30 @@ input:checked + label svg.moon {
   color: #5a5a5a;
 }
 
-.div1-navbar p {
+.div1-navbar span {
   padding: 1.5vh 1.78vw;
   font-size: 0.8rem;
   font-family: poppins-regular;
   cursor: pointer;
 }
 
-.active-tab {
+.tab {
+  width: 100%;
+}
+
+.tab.active {
   color: #fff;
 }
 
-.div1-contact-details-container {
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#schedule-div {
   display: flex;
   flex-direction: column;
   gap: 2vh;
@@ -410,6 +388,17 @@ input:checked + label svg.moon {
   gap: 1vw;
 }
 
+.user-profile-pic-placeholder {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #cfdae2;
+  color: #fff;
+}
+
 #calender,
 #time,
 #status {
@@ -422,7 +411,7 @@ input:checked + label svg.moon {
 }
 
 #status-icon {
-  background-color: #3cea43;
+  /* background-color: #3cea43; */
   width: 7px;
   height: 7px;
   border-radius: 7px;
@@ -573,11 +562,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   flex-direction: column;
   border-radius: 5px;
   border: none;
-  /* width: 100%; */
   height: 80%;
 }
 
-.input-limit-text {
+.counter {
+  float: right;
+  display: flex;
   font-family: poppins-regular;
   font-size: 0.9vw;
   margin-right: 0.1vw;
@@ -597,35 +587,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 /*----GENERAL PROPERTIES FOR LANDING PAGE FOOTER----*/
-
-.footer-container {
-  display: flex;
-  height: 7vh;
-  padding-right: 3vw;
-  align-items: center;
-  border-radius: 0 5px 0 0;
-  background-image: url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg"),
-    url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg"),
-    url("../../../assets/icons/video-conference.svg"),
-    url("../../../assets/icons/worldwide-location.svg"),
-    url("../../../assets/icons/chat-room.svg"),
-    url("../../../assets/icons/Man-On-Phone.svg");
-
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-
-  background-position: top 1vh right 2vw, top 4vh right 12vw, top 1vh right 20vw,
-    top 3.7vh right 27vw, top 3vh right 34vw, top 4vh right 45vw,
-    top 3vh right 52vw, top 2vh right 60vw, top 2vh right 70vw,
-    top 3.5vh right 80vw, top 4vh right 90vw, top 3.7vh right 97vw;
-  background-size: 30px;
-}
 
 /* -----------------------------------------Texts stlyes ----------------------------------------- */
 
@@ -719,12 +680,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   font-weight: 500;
 }
 
-.popup-txt {
+/* .popup-txt {
   color: #000;
   font-family: poppins-regular;
   font-size: 1rem;
   font-weight: 600;
-}
+} */
 
 .cta-text {
   text-align: center;
@@ -1148,11 +1109,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .div1-navbar {
     border: 2px solid #1f201f;
   }
-  .active-tab {
-    background-color: #1f201f;
-  }
-
-  .footer-container {
+  .tab.active {
     background-color: #1f201f;
   }
 }
@@ -1212,10 +1169,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .div1-navbar {
     border: 2px solid #22074a;
   }
-  .active-tab {
-    background-color: #22074a;
-  }
-  .footer-container {
+  .tab.active {
     background-color: #22074a;
   }
 }
