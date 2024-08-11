@@ -919,7 +919,7 @@ ul {
   transition: 0.2s;
 }
 
-input:checked + .slider:before {
+::part(check)input:checked + .slider:before {
   background-color: #ff0000;
 }
 

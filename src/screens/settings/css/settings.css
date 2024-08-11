@@ -297,24 +297,24 @@ section {
   border: 0.1px solid rgba(0, 0, 0, 0.5);
 }
 
-/*-------Start of Toggle Switch Key-----------------*/
-
+/* -------Start of Toggle Switch Key----------------- */
+/* 
 .switch {
   position: relative;
   display: inline-block;
   width: 32px;
   height: 14px;
-}
+} */
 
 /* Hide default HTML checkbox */
-.switch input {
+/* .switch input {
   opacity: 0;
   width: 0;
   height: 0;
-}
+} */
 
 /* The slider */
-.slider {
+/* .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -340,7 +340,7 @@ section {
 
 input:checked + .slider:before {
   background-color: #150aa1;
-  /* border: solid 2px white; */
+  
 }
 
 input:focus + .slider {
@@ -351,16 +351,16 @@ input:checked + .slider:before {
   -webkit-transform: translateX(13px);
   -ms-transform: translateX(13px);
   transform: translateX(13px);
-}
+} */
 
 /* Rounded sliders */
-.slider {
+/* .slider {
   border-radius: 34px;
 }
 
 .slider:before {
   border-radius: 50%;
-}
+} */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -393,7 +393,6 @@ input:checked + .slider:before {
 @media only screen and (min-width: 1200px) {
 }
 /*-------END---------*/
-
 
 .cs-sections > section {
   padding: 0vh 0;
@@ -429,7 +428,7 @@ input:checked + .slider:before {
 }
 
 @media (prefers-color-scheme: dark) {
-  .mainbody{
+  .mainbody {
     background-color: #222020;
   }
   .menu-title-texts {
@@ -447,11 +446,10 @@ input:checked + .slider:before {
   .current-mode-text {
     color: #a9a9a9;
   }
-  
 }
 
 @media (prefers-color-scheme: light) {
-  .mainbody{
+  .mainbody {
     background-color: #dad9d9;
   }
   .current-mode-text {
