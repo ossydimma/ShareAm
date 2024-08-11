@@ -304,7 +304,7 @@ input:checked + label svg.moon {
   overflow: hidden;
 }
 
-.card-action-section-div1 {
+.tab-content-box {
   height: 63vh;
   overflow-y: auto;
 }
@@ -324,15 +324,27 @@ input:checked + label svg.moon {
   color: #5a5a5a;
 }
 
-.div1-navbar p {
+.div1-navbar span {
   padding: 1.5vh 1.78vw;
   font-size: 0.8rem;
   font-family: poppins-regular;
   cursor: pointer;
 }
 
-.active-tab {
+.tab {
+  width: 100%;
+}
+
+.tab.active {
   color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 #schedule-div {
@@ -1097,7 +1109,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .div1-navbar {
     border: 2px solid #1f201f;
   }
-  .active-tab {
+  .tab.active {
     background-color: #1f201f;
   }
 }
@@ -1157,7 +1169,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .div1-navbar {
     border: 2px solid #22074a;
   }
-  .active-tab {
+  .tab.active {
     background-color: #22074a;
   }
 }
