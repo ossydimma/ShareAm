@@ -320,7 +320,7 @@ ul {
   display: none;
 }
 
-.display-chat-box {
+.display-aside-box {
   display: none;
 }
 
@@ -400,20 +400,20 @@ ul {
   border-color: #5f5f5f transparent transparent transparent;
 }
 
-#chat-box {
+#aside-box {
   height: 90.5vh;
   width: 50%;
   border-radius: 14px;
   margin: 7vh 2vw 0 0;
 }
 
-.chat-box-wrapper {
+.aside-box-wrapper {
   padding: 1.5vh 2vw 1.5vh 2vw;
   height: 100%;
   width: 100%;
 }
 
-.chat-box-header {
+.aside-box-header {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -571,23 +571,15 @@ ul {
   margin-bottom: 1vh;
 }
 
-.user-profile-picture {
-  display: flex;
-  width: 45px;
-  height: 45px;
-  flex-shrink: 0;
-  border-radius: 53px;
-}
-
 .user-profile-pic-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 3.5px;
   background: #cfdae2;
   color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
 }
 
 .user-profile-pic {
@@ -620,22 +612,11 @@ ul {
   user-select: none;
 }
 
-.first-user-profile-picture {
-  background: url("../../../assets/images/user\ 3.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.second-user-profile-picture {
-  background: url("../../../assets/images/user\ 1.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.third-user-profile-picture {
-  background: url("../../../assets/images/user\ 2.png");
-  background-size: cover;
-  background-position: center;
+.profile-pic img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .sent-chat {
@@ -759,7 +740,7 @@ ul {
   cursor: pointer;
 }
 
-.participant-pic {
+.participant-profile-pic {
   position: relative;
 }
 
@@ -773,41 +754,51 @@ ul {
   border: 0.5px solid #ffffff;
 }
 
-.active-participant-present {
-  background-color: #3cea43;
-}
-
-.active-participant-absent {
-  background-color: orange;
-}
-
 .each-participant img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 0.5px solid #a9a9a9;
+  object-fit: cover;
 }
 
 .participant-microphone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-left: auto;
-  border-radius: 6px;
 }
 
 .mic-on {
   background-color: #08e438;
   padding: 6px 8px;
+  border-radius: 6px;
 }
 
 .mic-off {
   background-color: #fe0000;
   padding: 6px 4.8px;
+  border-radius: 6px;
 }
 
-.ellipsis {
-  margin-left: 0.4vw;
+.menu-list {
+  background-color: #585858;
+  width: 8vw;
+  padding: 1.1vh 1vw;
+  border-radius: 11px;
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  z-index: 1000;
+}
+
+.menu-list li {
+  margin-bottom: 0.8vh;
+}
+
+.menu-close {
+  display: none;
+}
+
+.menu-display {
+  display: block;
 }
 
 /* ------------------------------ Texts styles -------------------------------------- */
@@ -875,6 +866,12 @@ ul {
   font-family: Poppins-regular;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.menu-txt {
+  color: #dad9d9;
+  font-family: Poppins-regular;
+  font-size: 0.8rem;
 }
 /*------Toggle Switch Key---------------*/
 
@@ -1146,7 +1143,7 @@ input:checked + .slider:before {
     background-color: #c3a8ec;
   }
 
-  .chat-box-header {
+  .aside-box-header {
     border-bottom: 2px solid #5f5f5f;
   }
 
@@ -1158,7 +1155,7 @@ input:checked + .slider:before {
     background: rgba(88, 88, 88, 0.75);
   }
 
-  #chat-box {
+  #aside-box {
     background: linear-gradient(
       181deg,
       rgba(218, 217, 217, 0.67) 5%,
@@ -1176,7 +1173,7 @@ input:checked + .slider:before {
     background-color: #373737;
   }
 
-  .chat-box-header {
+  .aside-box-header {
     border-bottom: 2px solid #979797;
   }
 
@@ -1188,7 +1185,7 @@ input:checked + .slider:before {
     background: #2e2e2e;
   }
 
-  #chat-box {
+  #aside-box {
     background: linear-gradient(
       181deg,
       rgba(112, 111, 111, 0.67) 5%,

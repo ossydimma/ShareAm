@@ -237,6 +237,7 @@ input:checked + label svg.moon {
   width: 35px;
   height: 35px;
   border-radius: 3.5px;
+  object-fit: cover;
 }
 
 .section-3-container {

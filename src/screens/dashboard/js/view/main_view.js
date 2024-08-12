@@ -1,78 +1,163 @@
-const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
-
-const participantsDisplay = document.getElementById("users-display");
-
-const chatBox = document.getElementById("chat-box");
-
-const activitiesBtn = document.getElementById("activities-btn");
-
-const tabs = document.querySelectorAll(".tab");
-
-const tabsContents = document.querySelectorAll(".tab-content");
-
 import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
+import { callParticipants } from "./../../../../variables/mock_variables/mock_view.js";
+import { participants } from "./../../../../variables/mock_variables/mock_view.js";
 
-viewChatSample.forEach((item) => {
-  if (Object.keys(item).pop() === "sent") {
-    const sentChat = document.createElement("div");
-    sentChat.classList.add("sent-chat");
-    sentChat.innerHTML = `
-          <p class="you-username desktop-msg-subtitle-txt">You</p>
+const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
+const participantsOnScreenDisplay = document.getElementById("users-display");
+const asideBox = document.getElementById("aside-box");
+const activitiesBtn = document.getElementById("activities-btn");
+const tabs = document.querySelectorAll(".tab");
+const tabsContents = document.querySelectorAll(".tab-content");
+const participantWrapper = document.querySelector(".participant-wrapper");
+const totalParticipants = document.getElementById("total-participants");
+
+const getTotalParticipants = () => {
+  totalParticipants.textContent = participants.length;
+};
+
+getTotalParticipants();
+
+// ------ Message Tab -------- //
+const handleChatBubble = () => {
+  viewChatSample.forEach((item) => {
+    if (Object.keys(item).pop() === "sent") {
+      const sentChat = document.createElement("div");
+      sentChat.classList.add("sent-chat");
+      sentChat.innerHTML = `
+          <p class="you-username desktop-msg-subtitle-txt">${item.sent.name}</p>
           <div class="you-text-and-time-wrapper">
             <p class="user-text desktop-sent-txt">
-               Yes, it will decrease the loading 👍 Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur reprehenderit
+               ${item.sent.message}
             </p>
             <div class="time-tick-wrapper">
               <p class="user-text-delivery-time desktop-sent-date-txt">
-                12:07pm
+                ${item.sent.deliveryTime}
               </p>
               <img src="../../assets/icons/double-tick.svg" alt="" />
             </div>
           </div>
   `;
-    chatBubblesWrapper.appendChild(sentChat);
-  } else {
-    const receivedChat = document.createElement("div");
-    receivedChat.classList.add("received-chat");
-    receivedChat.innerHTML = `
-      <div class="user-message-box">
-                  <a
-                    href="#"
-                    class="first-user-profile-picture user-profile-picture"
-                  ></a>
-                  <p class="userName desktop-msg-subtitle-txt">Shagari</p>
+      chatBubblesWrapper.appendChild(sentChat);
+    } else {
+      const receivedChat = document.createElement("div");
+      receivedChat.classList.add("received-chat");
+      receivedChat.innerHTML = `
+                <div class="user-message-box">
+                  <div class="profile-pic">
+                      ${
+                        item.received.image
+                          ? `
+                            <img
+                              src="${item.received.image}"
+                              alt="User Profile Pic"
+                            />
+                          `
+                          : `
+                        <div class="user-profile-pic-placeholder">NU</div>`
+                      } 
+                  </div>
+                      <p class="userName">${
+                        item.received.name
+                          ? `<p class="desktop-msg-subtitle-txt">${item.received.name}</p>`
+                          : `<p class="desktop-msg-subtitle-txt">${item.received.username}</p>`
+                      }</p>
                 </div>
 
                 <div class="text-and-time-wrapper">
                   <p class="user-text desktop-sent-txt">
-                    Hello guys, what's your opinion?Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Eaque quibusdam exercitationem
-                    velit adipisci consequuntur error ut corrupti aspernatur
-                    explicabo perferendis delectus ab enim sequi eum aliquam,
-                    culpa, consectetur iusto voluptates! Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Neque odio saepe cumque
-                    mollitia magnam aliquid a expedita nesciunt eius illo,
-                    voluptas autem non dignissimos eum dolore rerum incidunt,
-                    obcaecati cupiditate?
+                    ${item.received.message}
                   </p>
                   <p class="user-text-delivery-time desktop-sent-date-txt">
-                    12:05pm
+                    ${item.received.deliveryTime}
                   </p>
                 </div>
     `;
-    chatBubblesWrapper.appendChild(receivedChat);
-  }
-});
+      chatBubblesWrapper.appendChild(receivedChat);
+    }
+  });
+};
+handleChatBubble();
+
+// ------- Participant Tab -------- //
+const handleEachParticiantsList = () => {
+  participants.forEach((item) => {
+    const participantsList = document.createElement("ul");
+    participantsList.classList.add("participant-list");
+    participantsList.innerHTML = `
+                  <li class="each-participant">
+                    <div class="participant-profile-pic">
+                       ${
+                         item.image
+                           ? `
+                            <img
+                                src="${item.image}"
+                                alt="User Profile Pic"
+                            />
+                            `
+                           : `
+                            <div class="user-profile-pic-placeholder">NU</div>`
+                       } 
+                        <span
+                          class="active-participant" style="background-color: ${
+                            item.status === "active" ? "#3cea43" : "orange"
+                          }">
+                        </span>
+                         <ul class="menu-list menu-close">
+                            <li class="menu-txt">View profile</li>
+                            <li class="menu-txt">Mute</li>
+                            <li class="menu-txt">Chat</li>
+                         </ul>
+                    </div>
+                    <p class="participant-txt">${item.name}</p>
+                    <span class="participant-microphone">
+                     ${
+                       item.microphone
+                         ? `<div class="mic-on"> 
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="14"
+                                width="10.5"
+                                viewBox="0 0 384 512"
+                                
+                              >
+                                <path
+                                  fill="#dadada"
+                                  d="M192 0C139 0 96 43 96 96l0 160c0 53 43 96 96 96s96-43 96-96l0-160c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40z"
+                                />
+                              </svg>
+                            </div>
+                          `
+                         : `<div class="mic-off"> 
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="14"
+                                width="17.5"
+                                viewBox="0 0 640 512"
+                                
+                              >
+                                <path
+                                  fill="#dadada"
+                                  d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L472.1 344.7c15.2-26 23.9-56.3 23.9-88.7l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 21.2-5.1 41.1-14.2 58.7L416 300.8 416 96c0-53-43-96-96-96s-96 43-96 96l0 54.3L38.8 5.1zM344 430.4c20.4-2.8 39.7-9.1 57.3-18.2l-43.1-33.9C346.1 382 333.3 384 320 384c-70.7 0-128-57.3-128-128l0-8.7L144.7 210c-.5 1.9-.7 3.9-.7 6l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6z"
+                                />
+                              </svg>
+                            </div>
+                          `
+                     } 
+                    </span>
+                  </li>
+`;
+    participantWrapper.appendChild(participantsList);
+  });
+};
+handleEachParticiantsList();
 
 // ------------ Users display ----------//
-
-import { callParticipants } from "./../../../../variables/mock_variables/mock_view.js";
-
-callParticipants.forEach((item) => {
-  if (Object.keys(item).pop() === "listener") {
-    const listenerDisplay = document.createElement("div");
-    listenerDisplay.classList.add("listener-display");
-    listenerDisplay.innerHTML = `
+const handleParticipantsOnScreenDisplay = () => {
+  callParticipants.forEach((item) => {
+    if (Object.keys(item).pop() === "listener") {
+      const listenerDisplay = document.createElement("div");
+      listenerDisplay.classList.add("listener-display");
+      listenerDisplay.innerHTML = `
      <div class="user-img call-participants listener-display">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -112,11 +197,11 @@ callParticipants.forEach((item) => {
                 </svg>
               </div>
     `;
-    participantsDisplay.appendChild(listenerDisplay);
-  } else {
-    const speakerDisplay = document.createElement("div");
-    speakerDisplay.classList.add("speaker-display");
-    speakerDisplay.innerHTML = ` 
+      participantsOnScreenDisplay.appendChild(listenerDisplay);
+    } else {
+      const speakerDisplay = document.createElement("div");
+      speakerDisplay.classList.add("speaker-display");
+      speakerDisplay.innerHTML = ` 
       <div class="user-img call-participants speaker-display">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,14 +238,16 @@ callParticipants.forEach((item) => {
                   </g>
                 </svg>
               </div>`;
-    participantsDisplay.appendChild(speakerDisplay);
-  }
-});
+      participantsOnScreenDisplay.appendChild(speakerDisplay);
+    }
+  });
+};
+handleParticipantsOnScreenDisplay();
 
-// -----------ChatBox toggle and display ------------ //
+// -----------AsideBox toggle and display ------------ //
 
 const handleChatBoxToggle = () => {
-  chatBox.classList.toggle("display-chat-box");
+  asideBox.classList.toggle("display-aside-box");
 };
 
 handleChatBoxToggle();
@@ -170,9 +257,9 @@ activitiesBtn.addEventListener("click", handleChatBoxToggle);
 const handleChatBoxDisplay = () => {
   if (
     window.innerWidth >= 992 &&
-    chatBox.classList.contains("display-chat-box")
+    asideBox.classList.contains("display-aside-box")
   ) {
-    chatBox.classList.remove("display-chat-box");
+    asideBox.classList.remove("display-aside-box");
   }
 };
 handleChatBoxDisplay();
@@ -194,3 +281,43 @@ tabs.forEach((tab, index) => {
     tabsContents[index].classList.add("active");
   });
 });
+
+// --------- PARTICIPANT DROPDOWN --------- //
+const participantProfilePics = document.querySelectorAll(
+  ".participant-profile-pic"
+);
+
+const menuContents = document.querySelectorAll(".menu-list");
+let current;
+
+participantProfilePics.forEach((participant, index) => {
+  participant.addEventListener("click", () => {
+    if (current === index) {
+      menuContents[current].classList.toggle("menu-display");
+    } else {
+      menuContents.forEach((menu) => {
+        menu.classList.remove("menu-display");
+      });
+      menuContents[current].classList.add("menu-display");
+    }
+    // menuContents.forEach((menu) => {
+    //   menu.classList.remove("menu-display");
+    // });
+    current = index;
+    console.log(index);
+    console.log(menuContents[current]);
+    // menuContents[current].classList.add("menu-display");
+  });
+});
+// menuContents[current].classList.add(".menu-display");
+// console.log("ytr", menuContents[current]);
+
+function handleMenuListDisplay() {
+  menuContents.forEach((menu, index) => {
+    menu.addEventListener("click", () => {
+      console.log(index);
+    });
+  });
+}
+
+handleMenuListDisplay();
