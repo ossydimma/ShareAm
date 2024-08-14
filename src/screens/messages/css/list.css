@@ -312,12 +312,12 @@ main {
   padding-bottom: 24px;
 }
 
-.right-side-div2-wrapper {
+.chats-box-wrapper {
   overflow-y: scroll;
   height: 58vh;
 }
 
-.right-side-div2 {
+#chats-box {
   display: flex;
   flex-direction: column;
   gap: 1.5vh;

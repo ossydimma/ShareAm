@@ -10,6 +10,7 @@ const activeUserName = document.getElementById("active-username");
 const activeUsermsg = document.getElementById("blue-text");
 const activeUserDate = document.getElementById("active-userdate");
 const placeHolder = document.getElementById("placeholder");
+const chatBox = document.getElementById("chats-box");
 
 let clicked = false;
 
@@ -126,6 +127,40 @@ msgSample.forEach((item) => {
     `;
 
   chatList.appendChild(chatContain);
+});
+
+msgSample.forEach((chat) => {
+  chat.chatSample.forEach((item) => {
+    if (Object.keys(item).pop() === "sent") {
+      const sentChat = document.createElement("div");
+      sentChat.classList.add("sender-message");
+      sentChat.innerHTML = `
+        <div>
+          <p>${item.sent.message}</p>
+          <div class="time-tick-wrapper">
+            <p class="user-text-delivery-time desktop-sent-date-txt">
+              ${item.sent.deliveryTime}
+            </p>
+            <img src="../../assets/icons/double-tick.svg" alt="" />
+          </div>
+        </div>
+    `;
+      chatBox.appendChild(sentChat);
+    } else {
+      const receivedChat = document.createElement("div");
+      receivedChat.classList.add("receiver-message");
+      receivedChat.innerHTML = `
+       <div>
+          <p>${item.recieve.message}</p>
+          <p class="user-text-delivery-time desktop-sent-date-txt">
+            ${item.recieve.deliveryTime}
+          </p>
+        </div>
+      `;
+      chatBox.appendChild(receivedChat);
+    }
+  })
+  
 });
 
 const chats = document.querySelectorAll(".user-div");
