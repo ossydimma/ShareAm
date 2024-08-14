@@ -2,20 +2,19 @@ export const viewChatSample = [
   {
     sent: {
       id: 1,
-      image: "../../assets/images/user 1.png",
-      name: "Shagari",
-      username: "@shagarishagari",
+      name: "You",
+      username: "",
       message: "Hello guys, what's your opinion?",
       deliveryTime: "12:05pm",
     },
   },
 
   {
-    reply: {
+    received: {
       id: 2,
-      image: "",
-      name: "You",
-      username: "",
+      image: "../../assets/images/user 1.png",
+      name: "Shagari",
+      username: "@shagarishagari",
       message: "Nigeria don spoil true true.",
       deliveryTime: "13:15pm",
     },
@@ -24,9 +23,8 @@ export const viewChatSample = [
   {
     sent: {
       id: 3,
-      image: "../../assets/images/user 3.png",
-      name: "Riri-Bi",
-      username: "@Riri-Bi_Riri-Bi",
+      name: "You",
+      username: "",
       message: "Images are better.",
       deliveryTime: "12:15pm",
     },
@@ -35,48 +33,106 @@ export const viewChatSample = [
   {
     sent: {
       id: 3,
-      image: "../../assets/images/user 3.png",
-      name: "Riri-Bi",
-      username: "@Riri-Bi_Riri-Bi",
+      name: "You",
+      username: "",
       message: "Images are better.",
-      deliveryTime: "12:15pm",
+      deliveryTime: "12:16pm",
     },
   },
 
   {
-    reply: {
+    received: {
       id: 4,
-      image: "",
-      name: "You",
-      username: "",
-      message: "Tinubu go kill us ",
+      image: "../../assets/images/user 3.png",
+      name: "Riri-Bi",
+      username: "@Riri-Bi_Riri-Bi",
+      message:
+        "Tinubu go kill us Tinubu go kill us Tinubu go kill us Tinubu go kill us",
       deliveryTime: "14:15pm",
+    },
+  },
+
+  {
+    received: {
+      id: 4,
+      image: "../../assets/images/user 2.png",
+      name: "",
+      username: "@Shina-Rambo",
+      message:
+        "Nigeria is on fire Nigeria is on fire Nigeria is on fire Nigeria is on fire",
+      deliveryTime: "14:20pm",
     },
   },
 ];
 
-export const callParticipants = [
+export const participants = [
   {
-    listener: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
+    image: "../../assets/images/user 3.png",
+    microphone: true,
+    name: "John wick",
+    status: "active",
+    speaking: true,
   },
 
   {
-    speaker: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
+    image: "../../assets/images/user 1.png",
+    microphone: false,
+    name: "James Brown",
+    status: "away",
+    speaking: true,
   },
 
   {
-    listener: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
+    image: "",
+    microphone: true,
+    name: "Asiwaju Titi",
+    status: "active",
+    speaking: true,
+  },
+  {
+    image: "../../assets/images/user 3.png",
+    microphone: true,
+    name: "John wick",
+    status: "active",
+    speaking: false,
+  },
+
+  {
+    image: "",
+    microphone: false,
+    name: "James Brown",
+    status: "away",
+    speaking: false,
+  },
+
+  {
+    image: "../../assets/images/user 2.png",
+    microphone: true,
+    name: "Asiwaju Titi",
+    status: "active",
+    speaking: true,
+  },
+  {
+    image: "",
+    microphone: true,
+    name: "John wick",
+    status: "active",
+    speaking: false,
+  },
+
+  {
+    image: "../../assets/images/user 1.png",
+    microphone: false,
+    name: "James Brown",
+    status: "away",
+    speaking: false,
+  },
+
+  {
+    image: "../../assets/images/user 2.png",
+    microphone: true,
+    name: "Asiwaju Titi",
+    status: "active",
+    speaking: false,
   },
 ];

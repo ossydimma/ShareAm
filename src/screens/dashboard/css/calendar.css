@@ -397,6 +397,10 @@ input:checked + label svg.moon {
   justify-content: center;
   background: #cfdae2;
   color: #fff;
+  font-family: Poppins-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 #calender,
