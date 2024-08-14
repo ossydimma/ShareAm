@@ -231,6 +231,10 @@ input:checked + label svg.moon {
   border-radius: 3.5px;
   background: #cfdae2;
   color: #fff;
+  font-family: Poppins-bold;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .user-profile-pic {

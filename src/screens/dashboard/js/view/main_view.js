@@ -1,5 +1,4 @@
 import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
-import { callParticipants } from "./../../../../variables/mock_variables/mock_view.js";
 import { participants } from "./../../../../variables/mock_variables/mock_view.js";
 
 const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
@@ -85,7 +84,8 @@ const handleEachParticiantsList = () => {
     participantsList.classList.add("participant-list");
     participantsList.innerHTML = `
                   <li class="each-participant">
-                    <div class="participant-profile-pic">
+                    <div class="participant-profile-wrapper">
+                      <div class="participant-profile-picture">
                        ${
                          item.image
                            ? `
@@ -97,16 +97,12 @@ const handleEachParticiantsList = () => {
                            : `
                             <div class="user-profile-pic-placeholder">NU</div>`
                        } 
+                      </div>
                         <span
-                          class="active-participant" style="background-color: ${
+                          class="online-status" style="background-color: ${
                             item.status === "active" ? "#3cea43" : "orange"
                           }">
                         </span>
-                         <ul class="menu-list menu-close">
-                            <li class="menu-txt">View profile</li>
-                            <li class="menu-txt">Mute</li>
-                            <li class="menu-txt">Chat</li>
-                         </ul>
                     </div>
                     <p class="participant-txt">${item.name}</p>
                     <span class="participant-microphone">
@@ -144,6 +140,38 @@ const handleEachParticiantsList = () => {
                           `
                      } 
                     </span>
+                    <span class="ellipsis-menu">
+                        <svg
+                        width="25px"
+                        height="25px"
+                        viewBox="0 0 24 24"
+                        fill="#DAD9D9"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <g id="SVGRepo_iconCarrier">
+                          <title />
+                          <g id="Complete">
+                            <g id="F-More">
+                              <path
+                                d="M12,16a2,2,0,1,1-2,2A2,2,0,0,1,12,16ZM10,6a2,2,0,1,0,2-2A2,2,0,0,0,10,6Zm0,6a2,2,0,1,0,2-2A2,2,0,0,0,10,12Z"
+                                id="Vertical"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                      </span>
+                      <ul class="menu-list menu-close">
+                          <li class="menu-txt">View profile</li>
+                          <li class="menu-txt">Mute</li>
+                          <li class="menu-txt">Chat</li>
+                       </ul>
                   </li>
 `;
     participantWrapper.appendChild(participantsList);
@@ -152,57 +180,28 @@ const handleEachParticiantsList = () => {
 handleEachParticiantsList();
 
 // ------------ Users display ----------//
+
 const handleParticipantsOnScreenDisplay = () => {
-  callParticipants.forEach((item) => {
-    if (Object.keys(item).pop() === "listener") {
-      const listenerDisplay = document.createElement("div");
-      listenerDisplay.classList.add("listener-display");
-      listenerDisplay.innerHTML = `
-     <div class="user-img call-participants listener-display">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  version="1.1"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  width="15"
-                  height="15"
-                  x="0"
-                  y="0"
-                  viewBox="0 0 24 24"
-                  style="enable-background: new 0 0 512 512"
-                  xml:space="preserve"
-                  class="microphone"
-                >
-                  <rect
-                    width="24"
-                    height="24"
-                    rx="4.8"
-                    ry="4.8"
-                    fill="#fe0000"
-                    shape="rounded"
-                    transform="matrix(0.85,0,0,0.85,1.8000000000000007,1.8000000000000007)"
-                  ></rect>
-                  <g
-                    transform="matrix(0.6500000000000006,0,0,0.6500000000000006,4.199912548065181,4.200000000000001)"
-                  >
-                    <g fill="#000">
-                      <path
-                        d="M5.847 12c0 3.314 2.548 6 5.692 6 1.23 0 2.369-.41 3.3-1.11l.678.716A6.393 6.393 0 0 1 11.54 19c-3.669 0-6.642-3.134-6.642-7 0-.552-.425-1-.95-1S3 11.448 3 12c0 4.633 3.322 8.448 7.592 8.945l-.001.055v1H8.693c-.524 0-.949.448-.949 1s.425 1 .949 1h5.693c.524 0 .949-.448.949-1s-.425-1-.949-1h-1.898v-1l-.001-.055a8.274 8.274 0 0 0 4.383-1.913l2.51 2.646c.37.39.971.39 1.342 0 .37-.39.37-1.024 0-1.414L4.62 3.293a.915.915 0 0 0-1.342 0c-.37.39-.37 1.024 0 1.414l2.569 2.707zM6.478 3.251l10.368 10.927c.25-.675.387-1.41.387-2.178V6c0-3.314-2.55-6-5.693-6-2.205 0-4.116 1.32-5.062 3.251zM17.569 14.94l1.409 1.485A9.337 9.337 0 0 0 20.078 12c0-.552-.425-1-.949-1s-.949.448-.949 1c0 1.05-.219 2.046-.612 2.94z"
-                        fill="#ffffff"
-                        opacity="1"
-                        data-original="#000000"
-                        class=""
-                      ></path>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-    `;
-      participantsOnScreenDisplay.appendChild(listenerDisplay);
-    } else {
-      const speakerDisplay = document.createElement("div");
-      speakerDisplay.classList.add("speaker-display");
-      speakerDisplay.innerHTML = ` 
-      <div class="user-img call-participants speaker-display">
+  participants.slice(1, 4).forEach((item) => {
+    const listenerDisplay = document.createElement("div");
+    listenerDisplay.classList.add("listener-display");
+    listenerDisplay.innerHTML = `
+          <div class="user-img call-participants listener-display">
+            
+              ${
+                item.image
+                  ? `
+                              <img
+                                  src="${item.image}"
+                                  alt="User Profile Pic"
+                              />
+                              `
+                  : `
+                              <div class="user-img-display">NU</div>`
+              }
+            ${
+              item.speaking
+                ? `
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
@@ -236,10 +235,46 @@ const handleParticipantsOnScreenDisplay = () => {
                       class=""
                     ></path>
                   </g>
-                </svg>
-              </div>`;
-      participantsOnScreenDisplay.appendChild(speakerDisplay);
-    }
+                </svg>`
+                : `<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="15"
+                  height="15"
+                  x="0"
+                  y="0"
+                  viewBox="0 0 24 24"
+                  style="enable-background: new 0 0 512 512"
+                  xml:space="preserve"
+                  class="microphone"
+                >
+                  <rect
+                    width="30"
+                    height="30"
+                    rx="4.8"
+                    ry="4.8"
+                    fill="#fe0000"
+                    shape="rounded"
+                    transform="matrix(0.85,0,0,0.85,1.8000000000000007,1.8000000000000007)"
+                  ></rect>
+                  <g transform="matrix(0.6500000000000006,0,0,0.6500000000000006,4.199912548065181,4.200000000000001)">
+                    <g fill="#000">
+                      <path
+                        d="M5.847 12c0 3.314 2.548 6 5.692 6 1.23 0 2.369-.41 3.3-1.11l.678.716A6.393 6.393 0 0 1 11.54 19c-3.669 0-6.642-3.134-6.642-7 0-.552-.425-1-.95-1S3 11.448 3 12c0 4.633 3.322 8.448 7.592 8.945l-.001.055v1H8.693c-.524 0-.949.448-.949 1s.425 1 .949 1h5.693c.524 0 .949-.448.949-1s-.425-1-.949-1h-1.898v-1l-.001-.055a8.274 8.274 0 0 0 4.383-1.913l2.51 2.646c.37.39.971.39 1.342 0 .37-.39.37-1.024 0-1.414L4.62 3.293a.915.915 0 0 0-1.342 0c-.37.39-.37 1.024 0 1.414l2.569 2.707zM6.478 3.251l10.368 10.927c.25-.675.387-1.41.387-2.178V6c0-3.314-2.55-6-5.693-6-2.205 0-4.116 1.32-5.062 3.251zM17.569 14.94l1.409 1.485A9.337 9.337 0 0 0 20.078 12c0-.552-.425-1-.949-1s-.949.448-.949 1c0 1.05-.219 2.046-.612 2.94z"
+                        fill="#ffffff"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""
+                      ></path>
+                    </g>
+                  </g>
+                </svg>`
+            }
+            
+          </div>
+    `;
+    participantsOnScreenDisplay.appendChild(listenerDisplay);
   });
 };
 handleParticipantsOnScreenDisplay();
@@ -267,25 +302,25 @@ handleChatBoxDisplay();
 window.addEventListener("resize", handleChatBoxDisplay);
 
 //-------- MESSAGE AND PARTICIPANT TOGGLE --------//
+const handleTab = () => {
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", (e) => {
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+      tab.classList.add("active");
 
-tabs.forEach((tab, index) => {
-  tab.addEventListener("click", (e) => {
-    tabs.forEach((tab) => {
-      tab.classList.remove("active");
+      tabsContents.forEach((content) => {
+        content.classList.remove("active");
+      });
+      tabsContents[index].classList.add("active");
     });
-    tab.classList.add("active");
-
-    tabsContents.forEach((content) => {
-      content.classList.remove("active");
-    });
-    tabsContents[index].classList.add("active");
   });
-});
+};
+handleTab();
 
 // --------- PARTICIPANT DROPDOWN --------- //
-const participantProfilePics = document.querySelectorAll(
-  ".participant-profile-pic"
-);
+const participantProfilePics = document.querySelectorAll(".ellipsis-menu");
 
 const menuContents = document.querySelectorAll(".menu-list");
 let current;

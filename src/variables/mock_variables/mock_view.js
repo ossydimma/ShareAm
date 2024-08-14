@@ -65,38 +65,13 @@ export const viewChatSample = [
   },
 ];
 
-export const callParticipants = [
-  {
-    listener: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
-  },
-
-  {
-    speaker: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
-  },
-
-  {
-    listener: {
-      image: "",
-      microphoneIcon: "",
-      recorederIcon: "",
-    },
-  },
-];
-
 export const participants = [
   {
     image: "../../assets/images/user 3.png",
     microphone: true,
     name: "John wick",
     status: "active",
+    speaking: true,
   },
 
   {
@@ -104,6 +79,7 @@ export const participants = [
     microphone: false,
     name: "James Brown",
     status: "away",
+    speaking: true,
   },
 
   {
@@ -111,12 +87,14 @@ export const participants = [
     microphone: true,
     name: "Asiwaju Titi",
     status: "active",
+    speaking: true,
   },
   {
     image: "../../assets/images/user 3.png",
     microphone: true,
     name: "John wick",
     status: "active",
+    speaking: false,
   },
 
   {
@@ -124,6 +102,7 @@ export const participants = [
     microphone: false,
     name: "James Brown",
     status: "away",
+    speaking: false,
   },
 
   {
@@ -131,12 +110,14 @@ export const participants = [
     microphone: true,
     name: "Asiwaju Titi",
     status: "active",
+    speaking: true,
   },
   {
     image: "",
     microphone: true,
     name: "John wick",
     status: "active",
+    speaking: false,
   },
 
   {
@@ -144,6 +125,7 @@ export const participants = [
     microphone: false,
     name: "James Brown",
     status: "away",
+    speaking: false,
   },
 
   {
@@ -151,5 +133,6 @@ export const participants = [
     microphone: true,
     name: "Asiwaju Titi",
     status: "active",
+    speaking: false,
   },
 ];

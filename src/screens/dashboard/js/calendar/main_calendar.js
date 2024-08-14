@@ -1,10 +1,35 @@
 import { calendarSample } from "../../../../variables/mock_variables/mock_calendar.js";
 
-const scheduleDiv = document.getElementById("schedule-div");
+const awaiting = document.getElementById("awaiting-section");
+const completed = document.getElementById("completed-section");
+const cancelled = document.getElementById("cancelled-section");
 const doneButton = document.getElementById("done-btn");
+const tabs = document.querySelectorAll(".tab");
+const tabsContents = document.querySelectorAll(".tab-content");
 
-function renderCalendarItem() {
-  calendarSample.forEach((item) => {
+let awaitingArray;
+let completedArray;
+let cancelledArray;
+
+
+const handleAwaitingArray = () => {
+  awaitingArray = calendarSample.filter((awaitingitem) => awaitingitem.status === "awaiting");
+}
+handleAwaitingArray();
+
+const handleCompletedArray = () => {
+  completedArray = calendarSample.filter((completeditem) => completeditem.status === "confirmed");
+}
+handleCompletedArray();
+
+const handleCancelledArray = () => {
+  cancelledArray = calendarSample.filter((cancelleditem) => cancelleditem.status === "cancelled");
+}
+handleCancelledArray();
+
+
+const renderSchedule = (scheduleArray, schedules) => {
+  scheduleArray.forEach((item) => {
     const scheduleDetail = document.createElement("div");
     scheduleDetail.classList.add("contact-details-div");
 
@@ -146,7 +171,7 @@ function renderCalendarItem() {
                       ${
                         item.image
                           ? `<div class="contact-details2">
-                                  <img 
+                                  <img
                                       src="${item.image}"
                                       alt="Contact's Profile Picture"
                                   />
@@ -159,10 +184,12 @@ function renderCalendarItem() {
                   <div class="action-btn reschedule-btn">Reschedule</div>
               </div>
           `;
-    scheduleDiv.appendChild(scheduleDetail);
+        schedules.appendChild(scheduleDetail);
   });
 }
-renderCalendarItem();
+renderSchedule(awaitingArray, awaiting);
+renderSchedule(completedArray, completed);
+renderSchedule(cancelledArray, cancelled);
 
 const textArea = document.getElementById("textarea");
 const counterCharacters = document.getElementById("input-limit-text");
@@ -182,7 +209,25 @@ const newItem = {
 function addItem() {
   calendarSample.unshift(newItem);
   renderCalendarItem();
-  console.log(calendarSample);
 }
 
 doneButton.addEventListener("click", addItem);
+
+//-------- SCHEDULE STATUS TOGGLE --------//
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", (e) => {
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
+
+    tabsContents.forEach((content) => {
+      content.classList.remove("active");
+    });
+    tabsContents[index].classList.add("active");
+  });
+});
+
+
+console.log(awaitingArray);
