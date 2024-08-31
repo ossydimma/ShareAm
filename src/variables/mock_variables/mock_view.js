@@ -1,9 +1,6 @@
 export const viewChatSample = [
   {
     sent: {
-      id: 1,
-      name: "You",
-      username: "",
       message: "Hello guys, what's your opinion?",
       deliveryTime: "12:05pm",
     },
@@ -11,7 +8,6 @@ export const viewChatSample = [
 
   {
     received: {
-      id: 2,
       image: "../../assets/images/user 1.png",
       name: "Shagari",
       username: "@shagarishagari",
@@ -22,9 +18,6 @@ export const viewChatSample = [
 
   {
     sent: {
-      id: 3,
-      name: "You",
-      username: "",
       message: "Images are better.",
       deliveryTime: "12:15pm",
     },
@@ -32,9 +25,6 @@ export const viewChatSample = [
 
   {
     sent: {
-      id: 3,
-      name: "You",
-      username: "",
       message: "Images are better.",
       deliveryTime: "12:16pm",
     },
@@ -42,7 +32,6 @@ export const viewChatSample = [
 
   {
     received: {
-      id: 4,
       image: "../../assets/images/user 3.png",
       name: "Riri-Bi",
       username: "@Riri-Bi_Riri-Bi",
@@ -54,7 +43,6 @@ export const viewChatSample = [
 
   {
     received: {
-      id: 4,
       image: "../../assets/images/user 2.png",
       name: "",
       username: "@Shina-Rambo",

@@ -1,5 +1,6 @@
 import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
 import { participants } from "./../../../../variables/mock_variables/mock_view.js";
+import { presentTime } from "../../../../services/date_time.js";
 
 const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
 const participantsOnScreenDisplay = document.getElementById("users-display");
@@ -9,6 +10,7 @@ const tabs = document.querySelectorAll(".tab");
 const tabsContents = document.querySelectorAll(".tab-content");
 const participantWrapper = document.querySelector(".participant-wrapper");
 const totalParticipants = document.getElementById("total-participants");
+const chatSubmission = document.getElementById("text-submit");
 
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
@@ -23,7 +25,7 @@ const handleChatBubble = () => {
       const sentChat = document.createElement("div");
       sentChat.classList.add("sent-chat");
       sentChat.innerHTML = `
-          <p class="you-username desktop-msg-subtitle-txt">${item.sent.name}</p>
+          <p class="you-username desktop-msg-subtitle-txt">You</p>
           <div class="you-text-and-time-wrapper">
             <p class="user-text desktop-sent-txt">
                ${item.sent.message}
@@ -37,6 +39,7 @@ const handleChatBubble = () => {
           </div>
   `;
       chatBubblesWrapper.appendChild(sentChat);
+      sentChat.scrollTop = sentChat.scrollHeight;
     } else {
       const receivedChat = document.createElement("div");
       receivedChat.classList.add("received-chat");
@@ -356,3 +359,38 @@ function handleMenuListDisplay() {
 }
 
 handleMenuListDisplay();
+
+// ------- SENDER MESSAGE ------- //
+
+const handleSendingMessage = (e) => {
+  e.preventDefault();
+  // let input = document.getElementById("messages");
+  // let messageText = input.value.trim();
+  // if (messageText === "") {
+  //   return;
+  // }
+  // presentTime();
+  // const messageObject = {
+  //   sent: {
+  //     message: messageText,
+  //     deliveryTime: presentTime(),
+  //   },
+  // };
+  // viewChatSample.push(messageObject);
+  // handleChatBubble();
+  // updateScroll();
+  // messageText = "";
+  // input.value = "";
+
+  let attachFile = document.getElementById("attach-input");
+  let file = attachFile.value.trim();
+  console.log(file);
+};
+
+chatSubmission.addEventListener("submit", handleSendingMessage);
+
+const updateScroll = () => {
+  let chatScroll = document.getElementById("chat-wrap");
+  chatScroll.scrollTop = chatScroll.scrollHeight;
+};
+updateScroll();
