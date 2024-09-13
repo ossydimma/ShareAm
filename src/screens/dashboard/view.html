@@ -360,76 +360,162 @@
                 <div id="chat-bubbles-wrapper"></div>
               </div>
 
-              <div class="user-typing-and-input-wrapper">
-                <div class="user-typing-indicator">
-                  <div class="loading-circle">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="29"
-                      height="29"
-                      viewBox="0 0 29 29"
-                      fill="none"
-                      class="main-circle"
-                    >
-                      <circle
-                        cx="14.5"
-                        cy="14.5"
-                        r="14.5"
-                        fill="#585858"
-                        fill-opacity="0.6"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="5"
-                      height="5"
-                      viewBox="0 0 5 5"
-                      fill="none"
-                      class="circle-1"
-                    >
-                      <circle cx="2.5" cy="2.5" r="2.5" fill="#DAD9D9" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="5"
-                      height="5"
-                      viewBox="0 0 5 5"
-                      fill="none"
-                      class="circle-2"
-                    >
-                      <circle
-                        cx="2.5"
-                        cy="2.5"
-                        r="2.5"
-                        fill="#DAD9D9"
-                        fill-opacity="0.45"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="5"
-                      height="5"
-                      viewBox="0 0 5 5"
-                      fill="none"
-                      class="circle-3"
-                    >
-                      <circle
-                        cx="2.5"
-                        cy="2.5"
-                        r="2.5"
-                        fill="#DAD9D9"
-                        fill-opacity="0.45"
-                      />
-                    </svg>
-                  </div>
-                  <div class="user-typing-text desktop-sent-txt">
-                    Riri-Bi is typing...
+              <div class="overlay-and-input-wrapper">
+                <div class="overlays">
+                  <div class="overlay-box">
+                    <div class="user-typing-indicator">
+                      <div class="loading-circle">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="29"
+                          height="29"
+                          viewBox="0 0 29 29"
+                          fill="none"
+                          class="main-circle"
+                        >
+                          <circle
+                            cx="14.5"
+                            cy="14.5"
+                            r="14.5"
+                            fill="#585858"
+                            fill-opacity="0.6"
+                          />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="5"
+                          height="5"
+                          viewBox="0 0 5 5"
+                          fill="none"
+                          class="circle-1"
+                        >
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="#DAD9D9" />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="5"
+                          height="5"
+                          viewBox="0 0 5 5"
+                          fill="none"
+                          class="circle-2"
+                        >
+                          <circle
+                            cx="2.5"
+                            cy="2.5"
+                            r="2.5"
+                            fill="#DAD9D9"
+                            fill-opacity="0.45"
+                          />
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="5"
+                          height="5"
+                          viewBox="0 0 5 5"
+                          fill="none"
+                          class="circle-3"
+                        >
+                          <circle
+                            cx="2.5"
+                            cy="2.5"
+                            r="2.5"
+                            fill="#DAD9D9"
+                            fill-opacity="0.45"
+                          />
+                        </svg>
+                      </div>
+                      <div class="user-typing-text desktop-sent-txt">
+                        Riri-Bi is typing...
+                      </div>
+                    </div>
+                    <div id="emoji-overlay-wrapper">
+                      <div id="emoji-overlay">
+                        <div class="emojis">
+                          <span id="emoji"> &#128512;</span>
+                          <span id="emoji"> &#128513;</span>
+                          <span id="emoji"> &#128514;</span>
+                          <span id="emoji"> &#128515;</span>
+                          <span id="emoji"> &#128516;</span>
+                          <span id="emoji"> &#128517;</span>
+                          <span id="emoji"> &#128518;</span>
+                          <span id="emoji"> &#128519;</span>
+                          <span id="emoji"> &#128520;</span>
+                          <span id="emoji"> &#128521;</span>
+                          <span id="emoji"> &#128522;</span>
+                          <span id="emoji"> &#128523;</span>
+                          <span id="emoji"> &#128524;</span>
+                          <span id="emoji"> &#128525;</span>
+                          <span id="emoji"> &#128526;</span>
+                          <span id="emoji"> &#128527;</span>
+                          <span id="emoji"> &#128528;</span>
+                          <span id="emoji"> &#128529;</span>
+                          <span id="emoji"> &#128531;</span>
+                          <span id="emoji"> &#128532;</span>
+                          <span id="emoji"> &#128533;</span>
+                          <span id="emoji"> &#128534;</span>
+                          <span id="emoji"> &#128535;</span>
+                          <span id="emoji"> &#128536;</span>
+                          <span id="emoji"> &#128537;</span>
+                          <span id="emoji"> &#128538;</span>
+                          <span id="emoji"> &#128539;</span>
+                          <span id="emoji"> &#128540;</span>
+                          <span id="emoji"> &#128541;</span>
+                          <span id="emoji"> &#128542;</span>
+                          <span id="emoji"> &#128543;</span>
+                          <span id="emoji"> &#128544;</span>
+                          <span id="emoji"> &#128545;</span>
+                          <span id="emoji"> &#128546;</span>
+                          <span id="emoji"> &#128547;</span>
+                          <span id="emoji"> &#128548;</span>
+                          <span id="emoji"> &#128549;</span>
+                          <span id="emoji"> &#128550;</span>
+                          <span id="emoji"> &#128551;</span>
+                          <span id="emoji"> &#128552;</span>
+                          <span id="emoji"> &#128553;</span>
+                          <span id="emoji"> &#128554;</span>
+                          <span id="emoji"> &#128555;</span>
+                          <span id="emoji"> &#128556;</span>
+                          <span id="emoji"> &#128557;</span>
+                          <span id="emoji"> &#128558;</span>
+                          <span id="emoji"> &#128559;</span>
+                          <span id="emoji"> &#128560;</span>
+                          <span id="emoji"> &#128561;</span>
+                          <span id="emoji"> &#128562;</span>
+                          <span id="emoji"> &#128563;</span>
+                          <span id="emoji"> &#128564;</span>
+                          <span id="emoji"> &#128565;</span>
+                          <span id="emoji"> &#128566;</span>
+                          <span id="emoji"> &#128567;</span>
+                          <span id="emoji"> &#128568;</span>
+                          <span id="emoji"> &#128569;</span>
+                          <span id="emoji"> &#128570;</span>
+                          <span id="emoji"> &#128571;</span>
+                          <span id="emoji"> &#128572;</span>
+                          <span id="emoji"> &#128573;</span>
+                          <span id="emoji"> &#128574;</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="icon-file-name">
+                      <p class="file-name-type">
+                        <span class="file-name">Screenshot (12).</span
+                        ><span class="file-type">png</span>
+                      </p>
+                      <p class="file-size-type">
+                        <span class="file-size">333 KB,</span
+                        ><span class="file-type">png</span>
+                      </p>
+                    </div>
+                    <div class="img-preview">
+                      <img src="../../assets/images/snap-shot7.png" alt="" />
+                    </div>
                   </div>
                 </div>
 
                 <form class="input-wrapper" id="text-submit">
                   <span class="emoji-attach">
                     <svg
+                      id="emoji-btn"
                       width="20"
                       height="25"
                       viewBox="0 0 20 25"
@@ -463,41 +549,199 @@
                       </defs>
                     </svg>
 
-                    <button class="attach-icon">
-                      <svg
-                        width="20"
-                        height="25"
-                        viewBox="0 0 20 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                      >
-                        <rect
+                    <button class="attach-icon-wrapper">
+                      <span id="attach-icon">
+                        <svg
+                          id
                           width="20"
                           height="25"
-                          fill="url(#pattern0_3825_4232)"
-                        />
-                        <defs>
-                          <pattern
-                            id="pattern0_3825_4232"
-                            patternContentUnits="objectBoundingBox"
-                            width="1"
-                            height="1"
-                          >
-                            <use
-                              xlink:href="#image0_3825_4232"
-                              transform="matrix(0.0111111 0 0 0.00888889 0 0.1)"
-                            />
-                          </pattern>
-                          <image
-                            id="image0_3825_4232"
-                            width="90"
-                            height="90"
-                            xlink:href="data:image/png;base64,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"
+                          viewBox="0 0 20 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                        >
+                          <rect
+                            width="20"
+                            height="25"
+                            fill="url(#pattern0_3825_4232)"
                           />
-                        </defs>
-                      </svg>
-                      <input type="file" id="attach-input" />
+                          <defs>
+                            <pattern
+                              id="pattern0_3825_4232"
+                              patternContentUnits="objectBoundingBox"
+                              width="1"
+                              height="1"
+                            >
+                              <use
+                                xlink:href="#image0_3825_4232"
+                                transform="matrix(0.0111111 0 0 0.00888889 0 0.1)"
+                              />
+                            </pattern>
+                            <image
+                              id="image0_3825_4232"
+                              width="90"
+                              height="90"
+                              xlink:href="data:image/png;base64,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"
+                            />
+                          </defs>
+                        </svg>
+                      </span>
+                      <ul id="attach-list-wrapper">
+                        <li class="attach-list">
+                          <span>
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 25 25"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                            >
+                              <rect
+                                width="25"
+                                height="25"
+                                fill="url(#pattern0_3825_1327)"
+                              />
+                              <defs>
+                                <pattern
+                                  id="pattern0_3825_1327"
+                                  patternContentUnits="objectBoundingBox"
+                                  width="1"
+                                  height="1"
+                                >
+                                  <use
+                                    xlink:href="#image0_3825_1327"
+                                    transform="scale(0.0111111)"
+                                  />
+                                </pattern>
+                                <image
+                                  id="image0_3825_1327"
+                                  width="90"
+                                  height="90"
+                                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyklEQVR4nO2cv2pUQRSHL/gnQhYbIxZaiA9gLDQaS2tfwGfQaCGYyijiAySxFDtB1M6H8A8IxgewUREFG4mwsZBPBmZhXdy7946z59zd+X1wYSHL/M75ODs72WKqSgghhBBCCCFmFeAQcAN4A/wknd/AR+AJsOrdV6cATgDv/0NunfR73v11aZKnIXmYq1XpxO1i2vSBU1XJxD3ZghdVyQC72HG5KhVDybNKOIG9Bq4DCxJtw044oWmi7WS3n2yj4uaNNYm24ZVE27Ar0UZItBESbYREGyHRRki0ESWL7gObwAqwGJ/zwBawlzusVNGfgNM1PS7H92SjRNH9OskjsrNNdomiN1v0up0rtETRKy16vZArtETRvRa99nKFSnQNwGGJTkdbhxFbLSb6Qa7QppnD4bPOXji6NejzDPArV2iJoon/jCxPkPyZjJQqejDZ2/EI14vPatwusk3ygJJFmyLRRkh0QaK/AreBs8DR+ITXG/Fvc4G36Efhd+CarMX4npnHU/SdFplhumcaN9EJuRstlv8G3AcuAkeAJeBcXOMLDsyM6ED4FDRYOuzrS9UY4nn5IcZUbXELjgB3Gyz/FNhfdWg7qqtlXIE+wUMA6w0ingMHqhqAWxhRV8e44nyC0yb7GbCvC5NdV8O4wnyC02WvN1hn6rIn1fCvonyC07eRD5nWse3XLTh9sr9nPtXY9OsWnC77cct1piK7TQ2DQnyCGwDcHPkt+S1wLGGd7LLnSnQAOAlcAS5NOktbyk4pwCfYgZxfkCnhPsFOuPXrFuyEW79uwU649esW7IRbv27BTrj16xbshFu/uYJLo5JoGyTaCIk2QqKNkOgOi7a8jm1e+NHlCwYp/aqfcJ+baMe1FNEL8Yox0Yx3wMHWooeuNZbsZpKPJ0kemey1sP/oC/IvwmHhZdgukidZCCGEEEIIIYQQQgghqmL4AzoUSBQggTYAAAAAAElFTkSuQmCC"
+                                />
+                              </defs>
+                            </svg>
+                          </span>
+                          <p class="attach-txt">Photo</p>
+                        </li>
+                        <li class="attach-list">
+                          <span>
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 25 25"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                            >
+                              <rect
+                                width="25"
+                                height="25"
+                                fill="url(#pattern0_3825_1328)"
+                              />
+                              <defs>
+                                <pattern
+                                  id="pattern0_3825_1328"
+                                  patternContentUnits="objectBoundingBox"
+                                  width="1"
+                                  height="1"
+                                >
+                                  <use
+                                    xlink:href="#image0_3825_1328"
+                                    transform="scale(0.0111111)"
+                                  />
+                                </pattern>
+                                <image
+                                  id="image0_3825_1328"
+                                  width="90"
+                                  height="90"
+                                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdklEQVR4nO3dTW4TQRCG4drwcwAkIMA1WLGADSuOws8OSwguw5ZzBMSKIHERCMhYQnrRKCNBhLGnZ7qrq3u+5wJT9cZqx+M4NhMRERFpBnAdeAF8BL5T1w44Be5bT4C7wGfi2QKPraNHcsTIfcUej4vots3HHs/kFmybjg2cE8uPLmMTz4MjP/yfwBNrDcHYxUz9xSYY+zNXX7EJxi7P1k9sgrF/5+sjNsHY/hnbj00w9v85245NMHZ41nZjE4wdn7fN2ARj02ZuLzbB2PS524pNMJY2ezuxCcbS528jNsHYvB3ixyYYm7/Hwwm3WOu9B0k8JwVjn+atlzZcNJuF+xyKvctXLn2waHZD7FKP7Lz10oZaFVNoHwrtRKGdKLQThXai0E4U2olCO1FoJwrtRKGd9BZ6B7wcbgwBN4HXAT4X02XozZ7r3APeUVlvoW8fuN4j4AuV+Na9vLj7MsCV8bMz30pcf8lsxdRchosz/G2JGZbOll2EZXA8TspUnLZkiGVwOk7yF5y+YKhlKHyc5CuXvljIZSh0nOSYbe5C2Vm+2a6OL3Z+RZttzjLZWf4ZX0WdLWWJ7Cz/jDeizpayRHaWf0aFdgqto2OfjIH1ZHhIpsj69e6YhYH1gmWqmYH1EjyVpUfWTaU5bHpg3SZdwoIcE3NmK6bQPicHrqe3sjLa7AmsN2dLfg4FuAW80Z8brIzVwsqYQvtQaCcK7UShnSi0E4V2otBOFNqJQjtR6BWEjvav50v6WjN0K1+mkMOHmqGfsx5Pa4a+BpzRv0/DH+RUC/3XVziddR75jkUwPrKfDedYJ0+Q58D74bio/kgWERERsRS/AfJCXuvTs+37AAAAAElFTkSuQmCC"
+                                />
+                              </defs>
+                            </svg>
+                          </span>
+                          <p class="attach-txt">Videos</p>
+                        </li>
+                        <li class="attach-list file-popup">
+                          <span>
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 25 25"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                            >
+                              <rect
+                                width="25"
+                                height="25"
+                                transform="matrix(-1 0 0 1 25 0)"
+                                fill="url(#pattern0_3825_1329)"
+                              />
+                              <defs>
+                                <pattern
+                                  id="pattern0_3825_1329"
+                                  patternContentUnits="objectBoundingBox"
+                                  width="1"
+                                  height="1"
+                                >
+                                  <use
+                                    xlink:href="#image0_3825_1329"
+                                    transform="scale(0.0111111)"
+                                  />
+                                </pattern>
+                                <image
+                                  id="image0_3825_1329"
+                                  width="90"
+                                  height="90"
+                                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfUlEQVR4nO2cTW7UQBCFvWLgBjCJOAY7FmxYEe4B4meHuQaHCigr4BbZIkDg1UPWGAkNmXR3VVd1tf2+fcnvfe6xk7bUw0AIIYQQQgghhBBCBgB3AbwFcAXgB/7nhWLWggnAJYBH3dw+AOcAvt5S6hrAHeGsNb8APB2is6zGlKgPilkP4stefvIpLhSzXsSWvTxXUzxUzHoSVzaA7xkF7ilmLfjZneycVppZIx4nbvJvAM+GSOS00sxasFy7L9m5xaSzFvxz/X5klxSTzFpwlKEP2aXFSmctuCFHfNmSYn9BI4YbCC9bWmwGjRhOEFq2slgTEn1iytYUQyMyOsWTrSmGRmT2iiVbUwyNKOgWR7amGBpR2O9Jxt6I/ccDTTG0Y19Z9mUVmYkQSTSzRoyCnrfJntQiMwIk0cwafi8ca67sKjITF0+ime0FinaCop2gaCco2gmKdoKinaBoJyjaCYp2gqKdoGgn1iZ6AvCudDOooMt+2Wyati56NC90yDVuXfQD80KHXPe3LnpvXuiQ62zrokfzQodc77cuepJ8GSnowpdhdCxu/PEqEIfAiqBoJyjaCYp2gqKdWJvoqcZeh+bPuNKO1dCEQON/WCR7GqUda4YVh0DjvQ7JnkZpx5phxSFQzr71nkZpx5phxSHQ/tFRvKdR2rFmWHEINNrr4MuwYzQ3Pnd1iENgRVC0ExTtBEU7QdFOULQTFO0ERa9IdI/HsdXmm4foNR0wKOWTh+g3GUGeK2Z74JWH6B2AL8JDYHcZs9H5fOokYQvZ5wlh87HGO+FsdMlnLpKPVufr+Xl14iX3UjEbiTnfx/lx4baSCSGEEEIIIYQQQobY/AEheIfV8IUvPwAAAABJRU5ErkJggg=="
+                                />
+                              </defs>
+                            </svg>
+                            <input type="file" id="attach-input" />
+                          </span>
+                          <p class="attach-txt">Documents</p>
+                        </li>
+                        <li class="attach-list">
+                          <span>
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 25 25"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                            >
+                              <rect
+                                width="25"
+                                height="25"
+                                fill="url(#pattern0_3825_1330)"
+                              />
+                              <defs>
+                                <pattern
+                                  id="pattern0_3825_1330"
+                                  patternContentUnits="objectBoundingBox"
+                                  width="1"
+                                  height="1"
+                                >
+                                  <use
+                                    xlink:href="#image0_3825_1330"
+                                    transform="scale(0.0111111)"
+                                  />
+                                </pattern>
+                                <image
+                                  id="image0_3825_1330"
+                                  width="90"
+                                  height="90"
+                                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiElEQVR4nO2cy28cRRCHJya2E6QgyEIewAmJQ4BDQNwIKBzNI4Ek4gLnRKAEBIoJJ/MMJLz+DeCKOAIR76eCsbglIAUIshEXCJLXHPKhgrJYme3p2dnu3pne+qSVrNmdqpqfZ6u7umu2KAzDMAzDMAzDMAzDMIygANuBF4HvgGWGZ1ltHQe22b+r+EfkO4HfiIfY3j3WYgPXAReIz5/A9UVbAaaAk8Avay7sPHBC3vec/x7peLdoKypmGSdKzt1NetqZQvTOLeO847x1wAekR3yuK8YF4GFGx6FiHAAeCjSFq4v4frDIEeBq4G7gHZrBReBtYEZiK5oAsAF4DPhCp0nGv4gWnwOPAtPDinwt8K0aNtzMi1bD3Mkm8mBiD35na7oYJV3gFDAH3AfsAK4AJrVQkr9v0Pfm9LNyzig5Ukdoycmj4DRwELi8Rswi/iG1MQo+qyN0ijWItV+9mRAFhRZEMstZIC1/1Ak25bz2cWD9sAL3uYb1wNEaKWUFeFKnpfI6pse8NFXoM8DO0AL3uZabgbMDxHWsjw0R20ud4GLzFbAllJgVrmez5NCKsW3vc/62KifWCSwmXwKbKsRwCXAH8JqKtAT8pa8lPfYqcLt8toK9TcDXFeL7X7WoKaRVQp8BrvL43gg8Bfw6gN0lzasbPba3AN/XSB0ST2uEXvblZOAB4OchfPwIHPD4uMUzQK5oTm7tYPhEib8J4KWAi0ayMTtR4m+WCDRB6HnXFE5FfiuCzzddYmuFuZCj0DMlvkLdyf14ocTvvbkJfdpV8WlOjomkkf0lFaR807IR+mDJ7EIGr9jI4HqpI4ZHchG661ogqjplCsRsSSFTaUbRdKHfLylGBpknD8uiq6gBPsxB6DmHfan4UrPLEcszOQi912H/ddLziiOWfTkIvcNhv+oCT0g+ccRyYw5Cdxz2U+bnVRYdsVyZg9BTDvvBRvoB6DpimQ7lwIQeA6E7DvuWOhINhp+Sno9zHgz3OuzLzkhqTuY8vZtz2Jftp9Tc5ojl2RyEPlVSgsv2U8oSfCLnErwrHUQOH7LHl4qjjhg6utnbeqGdXfbaSHmO+Pzk2rTNaZnUt/B/QBfnYyG27x+XhX/hrhJfspEai+dK/O4J7awJQi94NmdlIzU0b3g2Z+Ux5uyEdg5IPWIfD5RGxMbznnaDSr10bRW6K80rHr/7h9xHPOfKyT0+bo3VtN4UodGuztLmRp2NzOrctyqL2qK7wWN7K/ADkWiS0KudpFWaHCWd7JKdEVm0VzFX9LWox16Wiq8sTfTYu6xik2M2QqMXnLJtd2tskYU6gaXgrC9nh0BzcrR00Uud4FLR1Xw8GUHgSZ1dJHtaq8lC986z7wn4sNCeGPPkHIReZV5//WBzjZg7unYRtKzOVehVVnT58mldmL9JhZzSV0eP7dMGmI9CrsKlFDr1c4Y58HubnpxtM7WenJWfRzAG43AdoadHOai0kG98v4rm+70OE7uayNfUEnnNnX1EmxJtgPyPC9qbcrj2nWwYhmEYhmEYhmEYhmEYhmEYhmEUbv4G6pEd2jecnNsAAAAASUVORK5CYII="
+                                />
+                              </defs>
+                            </svg>
+                          </span>
+                          <p class="attach-txt">Camera</p>
+                        </li>
+                      </ul>
                     </button>
                   </span>
                   <input
@@ -507,7 +751,6 @@
                     placeholder="Write message here"
                     class="desktop-msg-subtitle-txt"
                   />
-
                   <button type="submit" class="send-btn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

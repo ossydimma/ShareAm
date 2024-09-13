@@ -11,6 +11,10 @@ const tabsContents = document.querySelectorAll(".tab-content");
 const participantWrapper = document.querySelector(".participant-wrapper");
 const totalParticipants = document.getElementById("total-participants");
 const chatSubmission = document.getElementById("text-submit");
+const emojiOverlay = document.getElementById("emoji-btn");
+const emojiOverlayWrapper = document.getElementById("emoji-overlay-wrapper");
+const inputAttachments = document.getElementById("attach-icon");
+const attachListWrapper = document.getElementById("attach-list-wrapper");
 
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
@@ -34,7 +38,7 @@ const handleChatBubble = () => {
               <p class="user-text-delivery-time desktop-sent-date-txt">
                 ${item.sent.deliveryTime}
               </p>
-              <img src="../../assets/icons/double-tick.svg" alt="" />
+              <img src="../../assets/icons/double-tick.svg" class="double-tick" alt="" />
             </div>
           </div>
   `;
@@ -364,27 +368,27 @@ handleMenuListDisplay();
 
 const handleSendingMessage = (e) => {
   e.preventDefault();
-  // let input = document.getElementById("messages");
-  // let messageText = input.value.trim();
-  // if (messageText === "") {
-  //   return;
-  // }
-  // presentTime();
-  // const messageObject = {
-  //   sent: {
-  //     message: messageText,
-  //     deliveryTime: presentTime(),
-  //   },
-  // };
-  // viewChatSample.push(messageObject);
-  // handleChatBubble();
-  // updateScroll();
-  // messageText = "";
-  // input.value = "";
+  let input = document.getElementById("messages");
+  let messageText = input.value.trim();
+  if (messageText === "") {
+    return;
+  }
+  presentTime();
+  const messageObject = {
+    sent: {
+      message: messageText,
+      deliveryTime: presentTime(),
+    },
+  };
+  viewChatSample.push(messageObject);
+  handleChatBubble();
+  updateScroll();
+  messageText = "";
+  input.value = "";
 
   let attachFile = document.getElementById("attach-input");
   let file = attachFile.value.trim();
-  console.log(file);
+  // console.log(file);
 };
 
 chatSubmission.addEventListener("submit", handleSendingMessage);
@@ -394,3 +398,19 @@ const updateScroll = () => {
   chatScroll.scrollTop = chatScroll.scrollHeight;
 };
 updateScroll();
+
+// -------- EMOJI OVERLAY ----------- //
+const displayEmojiOverlay = () => {
+  emojiOverlayWrapper.classList.toggle("display-emoji");
+};
+displayEmojiOverlay();
+
+emojiOverlay.addEventListener("click", displayEmojiOverlay);
+
+// -------- ATTACHMENT OVERLAY ----------- //
+const displayAttachOverlay = () => {
+  attachListWrapper.classList.toggle("display-attach-list");
+};
+displayAttachOverlay();
+
+inputAttachments.addEventListener("click", displayAttachOverlay);
