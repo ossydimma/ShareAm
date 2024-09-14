@@ -1,4 +1,4 @@
-export const viewChatSample = [
+export const callInterfaceChatSample = [
   {
     sent: {
       message: "Hello guys, what's your opinion?",

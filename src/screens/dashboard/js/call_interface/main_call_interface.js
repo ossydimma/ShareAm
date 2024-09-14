@@ -1,6 +1,6 @@
-import { viewChatSample } from "./../../../../variables/mock_variables/mock_view.js";
-import { participants } from "./../../../../variables/mock_variables/mock_view.js";
-import { presentTime } from "../../../../services/date_time.js";
+import { callInterfaceChatSample } from "../../../../variables/mock_variables/mock_call_interface.js";
+import { participants } from "../../../../variables/mock_variables/mock_call_interface.js";
+import { presentTime } from "../../../../utils/date_time.js";
 
 const chatBubblesWrapper = document.getElementById("chat-bubbles-wrapper");
 const participantsOnScreenDisplay = document.getElementById("users-display");
@@ -24,7 +24,7 @@ getTotalParticipants();
 
 // ------ Message Tab -------- //
 const handleChatBubble = () => {
-  viewChatSample.forEach((item) => {
+  callInterfaceChatSample.forEach((item) => {
     if (Object.keys(item).pop() === "sent") {
       const sentChat = document.createElement("div");
       sentChat.classList.add("sent-chat");
@@ -380,7 +380,7 @@ const handleSendingMessage = (e) => {
       deliveryTime: presentTime(),
     },
   };
-  viewChatSample.push(messageObject);
+  callInterfaceChatSample.push(messageObject);
   handleChatBubble();
   updateScroll();
   messageText = "";
@@ -388,7 +388,6 @@ const handleSendingMessage = (e) => {
 
   let attachFile = document.getElementById("attach-input");
   let file = attachFile.value.trim();
-  // console.log(file);
 };
 
 chatSubmission.addEventListener("submit", handleSendingMessage);
