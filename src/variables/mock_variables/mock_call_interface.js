@@ -124,3 +124,62 @@ export const participants = [
     speaking: false,
   },
 ];
+
+export const addUsers = [
+  {
+    image: "../../assets/images/user 1.png",
+    videoIcon: true,
+    name: "Dr. Maria Watson",
+    status: "active",
+    statusText: "Online",
+  },
+  {
+    image: "",
+    videoIcon: true,
+    name: "Mr. Sore Obudu",
+    status: "active",
+    statusText: "Online",
+  },
+  {
+    image: "../../assets/images/user 3.png",
+    videoIcon: false,
+    name: "Prof. Amos Dgreat",
+    status: "away",
+    statusText: "Away",
+  },
+  {
+    image: "../../assets/images/user 1.png",
+    videoIcon: true,
+    name: "Mary Chalton",
+    status: "active",
+    statusText: "Online",
+  },
+  {
+    image: "../../assets/images/user 2.png",
+    videoIcon: false,
+    name: "James Brown",
+    status: "away",
+    statusText: "Away",
+  },
+  {
+    image: "",
+    videoIcon: false,
+    name: "Asiwaju Titi",
+    status: "away",
+    statusText: "Away",
+  },
+  {
+    image: "../../assets/images/user 1.png",
+    videoIcon: true,
+    name: "Alex Otti",
+    status: "active",
+    statusText: "Online",
+  },
+  {
+    image: "../../assets/images/user 2.png",
+    videoIcon: false,
+    name: "Peter Obi",
+    status: "away",
+    statusText: "Away",
+  },
+];

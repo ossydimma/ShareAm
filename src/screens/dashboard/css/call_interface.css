@@ -140,13 +140,111 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 0.8vw;
+  position: relative;
 }
 
-.add-user a {
+#add-icon,
+.add-btn,
+.each-user {
+  cursor: pointer;
+}
+
+#add-user-popup {
+  background-color: #fff;
+  border-radius: 11px 0 11px 11px;
+  position: absolute;
+  top: 170%;
+  right: 100%;
+  z-index: 1;
+  width: 28vw;
+  padding: 3vh 1vw;
+}
+
+.display-add-user-popup {
+  display: none;
+}
+
+#each-user-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+#each-user-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.each-user {
+  display: flex;
+  align-items: center;
+  padding: 0 0.6vw;
+  box-shadow: 2px 4px 3px #e0e0e0, -0.5px -0.5px 1px #e0e0e0;
+  border-radius: 4px;
+  margin: 0.5vh 1vw;
+}
+
+.prof-pic img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 0.6vh;
+}
+
+.each-user .user-profile-pic-placeholder {
+  width: 30px;
+  height: 30px;
+  font-family: Poppins-bold;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.username-txt {
+  margin-left: 1.5vw;
+}
+
+.online-status-vidoe-icon {
+  display: flex;
+  margin-left: auto;
+  gap: 3vw;
+}
+
+.online-stat {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.online-status-mode {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+}
+
+.video-icon {
+  margin-left: auto;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+
+.add-btn {
+  background-color: #22074a;
+  width: 10vw;
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin: 4vh auto 0 auto;
+}
+
+/* .add-user a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .interface-section-3 {
   height: 68vh;
@@ -910,7 +1008,6 @@ ul {
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  color: #fff;
   font-family: Poppins-bold;
   font-size: 1rem;
   font-weight: 700;
@@ -1044,10 +1141,23 @@ ul {
   font-weight: 500;
 }
 
+.username-txt {
+  color: #101623;
+  font-family: Poppins-regular;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.online-status-text {
+  color: #101623;
+  font-family: Poppins-regular;
+  font-size: 0.6rem;
+}
+
 .menu-txt {
   color: #dad9d9;
   font-family: Poppins-regular;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 /*------Toggle Switch Key---------------*/
 
