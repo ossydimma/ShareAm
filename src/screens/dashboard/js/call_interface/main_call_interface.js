@@ -104,7 +104,6 @@ const displayAddUserPopup = () => {
     AddUserPopup.classList.add("display-add-user-popup");
   }
 };
-
 addUserIcon.addEventListener("click", displayAddUserPopup);
 
 // ------ Message Tab -------- //
@@ -490,6 +489,10 @@ emojiOverlay.addEventListener("click", (event) => {
   } else {
     emojiOverlayWrapper.style.display = "none";
   }
+});
+
+emojiOverlayWrapper.addEventListener("click", (event) => {
+  event.stopPropagation();
 });
 
 document.addEventListener("click", (event) => {
