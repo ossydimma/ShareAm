@@ -98,10 +98,12 @@ handleAddUserPopup();
 
 // ------- DISPLAY ADD USER POPUP -------- //
 const displayAddUserPopup = () => {
-  AddUserPopup.classList.toggle("display-add-user-popup");
-  console.log("yes");
+  if (AddUserPopup.classList.contains("display-add-user-popup")) {
+    AddUserPopup.classList.remove("display-add-user-popup");
+  } else {
+    AddUserPopup.classList.add("display-add-user-popup");
+  }
 };
-displayAddUserPopup();
 
 addUserIcon.addEventListener("click", displayAddUserPopup);
 
@@ -480,17 +482,32 @@ const updateScroll = () => {
 updateScroll();
 
 // -------- EMOJI OVERLAY ----------- //
-const displayEmojiOverlay = () => {
-  emojiOverlayWrapper.classList.toggle("display-emoji");
-};
-displayEmojiOverlay();
 
-emojiOverlay.addEventListener("click", displayEmojiOverlay);
+emojiOverlay.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (window.getComputedStyle(emojiOverlayWrapper).display === "none") {
+    emojiOverlayWrapper.style.display = "block";
+  } else {
+    emojiOverlayWrapper.style.display = "none";
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    emojiOverlayWrapper.style.display === "block" &&
+    !emojiOverlay.contains(event.target)
+  ) {
+    emojiOverlayWrapper.style.display = "none";
+  }
+});
 
 // -------- ATTACHMENT OVERLAY ----------- //
 const displayAttachOverlay = () => {
-  attachListWrapper.classList.toggle("display-attach-list");
+  if (attachListWrapper.classList.contains("display-attach-list")) {
+    attachListWrapper.classList.remove("display-attach-list");
+  } else {
+    attachListWrapper.classList.add("display-attach-list");
+  }
 };
-displayAttachOverlay();
 
 inputAttachments.addEventListener("click", displayAttachOverlay);
