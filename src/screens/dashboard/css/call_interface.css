@@ -140,12 +140,104 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 0.8vw;
+  position: relative;
 }
 
-.add-user a {
+#add-icon,
+.add-btn,
+.each-user {
+  cursor: pointer;
+}
+
+#add-user-popup {
+  background-color: #fff;
+  border-radius: 11px 0 11px 11px;
+  position: absolute;
+  top: 170%;
+  right: 100%;
+  z-index: 1;
+  width: 28vw;
+  padding: 3vh 1vw;
+}
+
+.display-add-user-popup {
+  display: none;
+}
+
+#each-user-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+#each-user-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.each-user {
+  display: flex;
+  align-items: center;
+  padding: 0 0.6vw;
+  box-shadow: 2px 4px 3px #e0e0e0, -0.5px -0.5px 1px #e0e0e0;
+  border-radius: 4px;
+  margin: 0.5vh 1vw;
+}
+
+.prof-pic img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 0.6vh;
+}
+
+.each-user .user-profile-pic-placeholder {
+  width: 30px;
+  height: 30px;
+  font-family: Poppins-bold;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.username-txt {
+  margin-left: 1.5vw;
+}
+
+.online-status-vidoe-icon {
+  display: flex;
+  margin-left: auto;
+  gap: 3vw;
+}
+
+.online-stat {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.online-status-mode {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+}
+
+.video-icon {
+  margin-left: auto;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+
+.add-btn {
+  background-color: #22074a;
+  width: 10vw;
+  border: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 4vh auto 0 auto;
 }
 
 .interface-section-3 {
@@ -208,7 +300,6 @@ ul {
   height: 8vh;
   border-radius: 4px;
   border: 0.797px solid #dad9d9;
-  /* padding: 0 5px 5px 0; */
   position: relative;
 }
 
@@ -217,11 +308,6 @@ ul {
   width: 100%;
   object-fit: cover;
 }
-
-/* .user-img .microphone {
-  margin-left: auto;
-  margin-top: auto;
-} */
 
 .microphone {
   position: absolute;
@@ -235,7 +321,6 @@ ul {
   justify-content: center;
   width: 100%;
   height: 100%;
-  /* border-radius: 3.5px; */
   background: #cfdae2;
   color: #fff;
   font-family: Poppins-bold;
@@ -578,10 +663,13 @@ ul {
   display: block;
 }
 
-.chat-wrap {
-  height: 50%;
+#chat-wrap {
+  height: 54%;
   overflow-y: auto;
   padding-right: 1vw;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 4vh;
 }
 
 .received-chat {
@@ -620,12 +708,21 @@ ul {
   background: rgba(88, 88, 88, 0.75);
 }
 
+.user-text-delivery-time {
+  text-align: right;
+}
+
 .time-tick-wrapper {
   display: flex;
-  gap: 0.8vw;
+  gap: 0.6vw;
   margin-left: auto;
   width: fit-content;
   user-select: none;
+  align-items: center;
+}
+
+.double-tick {
+  height: 1.2vh;
 }
 
 .userName,
@@ -659,8 +756,8 @@ ul {
   background: rgba(48, 48, 48, 0.75);
 }
 
-.user-typing-and-input-wrapper {
-  width: 100%;
+.user-text {
+  word-break: break-all;
 }
 
 .user-typing-indicator {
@@ -668,7 +765,8 @@ ul {
   align-items: center;
   justify-content: flex-start;
   gap: 13px;
-  margin: 12px 0 10px 0;
+  padding: 0.8vh 0 0.8vh 0.8vw;
+  display: none;
 }
 
 .loading-circle {
@@ -702,20 +800,141 @@ ul {
   border-radius: 7px;
   background: #585858;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 0.6vh 1.2vw;
+  padding: 0.6vh 0.5vw;
+  position: relative;
+  margin-top: 3vh;
 }
 
-.img-btn {
-  margin-top: 13px;
+.input-wrapper svg {
   cursor: pointer;
 }
 
-.bar {
-  width: 1px;
-  flex-shrink: 0;
-  border-radius: 2px;
-  background: #d9d9d9;
-  margin: 12px 0 10px 15px;
+#emoji-overlay-wrapper {
+  display: none;
+}
+
+#emoji-overlay {
+  height: 20vh;
+  position: absolute;
+  top: -285%;
+  left: 0;
+  overflow: scroll;
+  background-color: #2e2e2e;
+  border-radius: 7px;
+}
+
+#emoji-overlay::-webkit-scrollbar {
+  display: none;
+}
+
+.emojis {
+  padding: 1vh 0.7vw;
+  cursor: pointer;
+}
+
+#emoji {
+  font-size: 1.3rem;
+}
+
+.overlays {
+  width: 100%;
+  margin-top: 2vh;
+  border-radius: 7px;
+  background-color: #2e2e2e;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+}
+
+.overlay-box {
+  position: relative;
+  background-color: #2e2e2e;
+  border-radius: 7px;
+}
+
+.icon-file-name {
+  color: #dad9d9;
+  font-family: Poppins-regular;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  user-select: none;
+  padding: 1vh 0 1vh 0.8vw;
+  display: none;
+}
+
+.file-size-type {
+  color: #acacac;
+  font-size: 0.7rem;
+}
+
+.img-preview img {
+  object-fit: contain;
+  height: 15vh;
+  padding: 1vh 0 0.8vh 0;
+  display: none;
+}
+
+.attach-icon-wrapper {
+  background: none;
+  border: none;
+  display: flex;
+  margin-left: 0.4vw;
+}
+
+#attach-input {
+  width: 9vw;
+  opacity: 0;
+  position: absolute;
+}
+
+.photo-input #attach-input {
+  right: 7%;
+  bottom: 77%;
+}
+
+.video-input #attach-input {
+  right: 7%;
+  bottom: 52.8%;
+}
+
+.doc-input #attach-input {
+  right: 7%;
+  bottom: 30%;
+}
+
+#attach-list-wrapper {
+  background-color: #2e2e2e;
+  position: absolute;
+  top: -265%;
+  bottom: 0;
+  height: fit-content;
+  padding: 1vh 0.8vw 0.5vh 0.2vw;
+  border-radius: 7px;
+}
+
+.attach-list {
+  display: flex;
+  gap: 0.5vw;
+  align-items: center;
+  padding: 0.2vh 0.5vw;
+}
+
+.attach-list:hover {
+  background-color: #373737;
+  border-radius: 7px;
+}
+
+.attach-txt {
+  color: #dad9d9;
+  font-family: Poppins-regular;
+  font-size: 0.9rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.display-attach-list {
+  display: none;
 }
 
 .input-wrapper label {
@@ -735,7 +954,8 @@ ul {
 .send-btn {
   margin-top: 0.6vh;
   margin-left: 1vw;
-  cursor: pointer;
+  background: none;
+  border: none;
   outline: none;
 }
 
@@ -770,7 +990,6 @@ ul {
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  color: #fff;
   font-family: Poppins-bold;
   font-size: 1rem;
   font-weight: 700;
@@ -904,10 +1123,23 @@ ul {
   font-weight: 500;
 }
 
+.username-txt {
+  color: #101623;
+  font-family: Poppins-regular;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.online-status-text {
+  color: #101623;
+  font-family: Poppins-regular;
+  font-size: 0.6rem;
+}
+
 .menu-txt {
   color: #dad9d9;
   font-family: Poppins-regular;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 /*------Toggle Switch Key---------------*/
 

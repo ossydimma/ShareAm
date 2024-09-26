@@ -374,7 +374,7 @@ template.innerHTML = `
               </div>
             </a>
 
-            <a class="menu-link nav-texts" id="callInterface" href="../dashboard/view.html">
+            <a class="menu-link nav-texts" id="callInterface" href="../dashboard/call_interface.html">
               <div class="icon-span">
                   <svg
                     width="19"
