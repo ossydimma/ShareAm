@@ -200,17 +200,17 @@
             <span class="lines"></span>
           </div>
           <br>
-          <form action="#" method="post">
+          <form id="meetingForm">
             <div class="input-group">
               <label for="meeting_id">Enter link to start meeting:</label>
               <input type="text" id="meeting_id" required />
             </div>
-            <!-- <button class="btn-login" onclick="gotohome()" type="submit">
+            <button class="btn-login" type="submit">
               Join
-            </button> -->
-            <auth-buttons onclick="gotohome()">
-              <p slot="message">Join</p>
-            </auth-buttons>
+            </button>
+            <!-- <auth-buttons onclick="gotohome()">
+              <p slot="message">Join</p>   onclick="gotohome()"
+            </auth-buttons> -->
           </form>
           <div class="links">
             Don’t have an account? <a href="./signup.html">Sign Up </a>
@@ -221,10 +221,22 @@
       </div>
     </div>
     <script>
-      //TEMPORARY SCRIPT TO GO TO HOME SCREEN
+      
+      async function gotoCallInterface() {
+        window.location.href = "../dashboard/call_interface.html";
+      }
+
       async function gotohome() {
         window.location.href = "../dashboard/dashboard.html";
       }
+
+      document.getElementById('meetingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const meetingId = document.getElementById('meeting_id').value;
+        localStorage.setItem('meetingToken', meetingId)
+        gotoCallInterface()
+      });
+
     </script>
     <script src="../../renderer.js"></script>
   </body>

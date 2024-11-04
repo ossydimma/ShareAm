@@ -60,8 +60,5 @@ app.on('activate', () => {
   }
 });
 
-
-
-
 // Handle IPC messages for window actions
 registerIPCMainHandlers();
