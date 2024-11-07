@@ -224,9 +224,6 @@ input:checked + label svg.moon {
 .contact-tabs {
   display: flex;
   flex-direction: column;
-  /* gap: 2vh; */
-  /* width: fit-content; */
-  /* margin: auto; */
   padding: 0 1vw;
 }
 
@@ -235,7 +232,6 @@ input:checked + label svg.moon {
   border-radius: 8px;
   color: #5a5a5a;
   text-align: center;
-  /* background-color: red; */
 }
 
 .div1-navbar span {
@@ -831,6 +827,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     font-size: 13px;
   }
 
+  .tab-content-box {
+    height: 62.5vh;
+  }
+
   .section1-container {
     padding: 3vh 2vw;
   }
@@ -873,6 +873,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 @media only screen and (max-width: 998px) {
   html {
     font-size: 12px;
+  }
+
+  .tab-content-box {
+    height: 60.3vh;
   }
 
   .section1-container {
@@ -931,6 +935,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 @media only screen and (max-width: 768px) {
   html {
     font-size: 12px;
+  }
+
+  .tab-content-box {
+    height: 60.8vh;
   }
 
   .section1-container {
@@ -1004,6 +1012,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 @media only screen and (max-width: 600px) {
   html {
     font-size: 11px;
+  }
+
+  .tab-content-box {
+    height: 61.7vh;
   }
 
   .section1-container {
