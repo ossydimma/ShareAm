@@ -19,6 +19,8 @@ const attachListWrapper = document.getElementById("attach-list-wrapper");
 const AddUserPopup = document.getElementById("add-user-popup");
 const addUserIcon = document.getElementById("add-icon");
 const eachUserWrapper = document.getElementById("each-user-wrapper");
+const backNav = document.getElementById("back-nav");
+const sidebarContainer = document.getElementById("sidebar-container");
 
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
@@ -33,32 +35,29 @@ const handleAddUserPopup = () => {
     addUserList.innerHTML = `
                   <div>
                       <span class="prof-pic">
-                       ${
-                         item.image
-                           ? `
+                       ${item.image
+        ? `
                             <img
                                 src="${item.image}"
                                 alt="User Profile Pic"
                             />
                             `
-                           : `
+        : `
                             <div class="user-profile-pic-placeholder">NU</div>`
-                       } 
+      } 
                       </div>
                       </span>
                       <p class="username-txt">${item.name}</p>
                       <span class="online-status-vidoe-icon">
                       <div class="online-stat">
-                        <p class="online-status-mode" style="background-color: ${
-                          item.status === "active" ? "#3cea43" : "orange"
-                        }">
+                        <p class="online-status-mode" style="background-color: ${item.status === "active" ? "#3cea43" : "orange"
+      }">
                         </p>
                         <p class="online-status-text">${item.statusText}</p>
                       </div>
                       <div class="video-icon">
-                      ${
-                        item.videoIcon
-                          ? `<svg
+                      ${item.videoIcon
+        ? `<svg
                           width="32"
                           height="31"
                           viewBox="0 0 25 24"
@@ -74,7 +73,7 @@ const handleAddUserPopup = () => {
                             fill="#388E3C"
                           />
                         </svg>`
-                          : `<svg
+        : `<svg
                           width="35"
                           height="24"
                           viewBox="0 0 25 24"
@@ -86,7 +85,7 @@ const handleAddUserPopup = () => {
                             fill="#E4E4E4"
                           />
                         </svg>`
-                      }
+      }
                       </div>
                       </span>
                     </div>
@@ -134,23 +133,21 @@ const handleChatBubble = () => {
       receivedChat.innerHTML = `
                 <div class="user-message-box">
                   <div class="profile-pic">
-                      ${
-                        item.received.image
-                          ? `
+                      ${item.received.image
+          ? `
                             <img
                               src="${item.received.image}"
                               alt="User Profile Pic"
                             />
                           `
-                          : `
+          : `
                         <div class="user-profile-pic-placeholder">NU</div>`
-                      } 
+        } 
                   </div>
-                      <p class="userName">${
-                        item.received.name
-                          ? `<p class="desktop-msg-subtitle-txt">${item.received.name}</p>`
-                          : `<p class="desktop-msg-subtitle-txt">${item.received.username}</p>`
-                      }</p>
+                      <p class="userName">${item.received.name
+          ? `<p class="desktop-msg-subtitle-txt">${item.received.name}</p>`
+          : `<p class="desktop-msg-subtitle-txt">${item.received.username}</p>`
+        }</p>
                 </div>
 
                 <div class="text-and-time-wrapper">
@@ -177,29 +174,26 @@ const handleEachParticiantsList = () => {
                   <li class="each-participant">
                     <div class="participant-profile-wrapper">
                       <div class="participant-profile-picture">
-                       ${
-                         item.image
-                           ? `
+                       ${item.image
+        ? `
                             <img
                                 src="${item.image}"
                                 alt="User Profile Pic"
                             />
                             `
-                           : `
+        : `
                             <div class="user-profile-pic-placeholder">NU</div>`
-                       } 
+      } 
                       </div>
                         <span
-                          class="online-status" style="background-color: ${
-                            item.status === "active" ? "#3cea43" : "orange"
-                          }">
+                          class="online-status" style="background-color: ${item.status === "active" ? "#3cea43" : "orange"
+      }">
                         </span>
                     </div>
                     <p class="participant-txt">${item.name}</p>
                     <span class="participant-microphone">
-                     ${
-                       item.microphone
-                         ? `<div class="mic-on"> 
+                     ${item.microphone
+        ? `<div class="mic-on"> 
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="14"
@@ -214,7 +208,7 @@ const handleEachParticiantsList = () => {
                               </svg>
                             </div>
                           `
-                         : `<div class="mic-off"> 
+        : `<div class="mic-off"> 
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="14"
@@ -229,7 +223,7 @@ const handleEachParticiantsList = () => {
                               </svg>
                             </div>
                           `
-                     } 
+      } 
                     </span>
                     <span class="ellipsis-menu">
                         <svg
@@ -278,20 +272,18 @@ const handleParticipantsOnScreenDisplay = () => {
     listenerDisplay.innerHTML = `
           <div class="user-img call-participants listener-display">
             
-              ${
-                item.image
-                  ? `
+              ${item.image
+        ? `
                               <img
                                   src="${item.image}"
                                   alt="User Profile Pic"
                               />
                               `
-                  : `
+        : `
                               <div class="user-img-display">NU</div>`
-              }
-            ${
-              item.speaking
-                ? `
+      }
+            ${item.speaking
+        ? `
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
@@ -326,7 +318,7 @@ const handleParticipantsOnScreenDisplay = () => {
                     ></path>
                   </g>
                 </svg>`
-                : `<svg
+        : `<svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -360,7 +352,7 @@ const handleParticipantsOnScreenDisplay = () => {
                     </g>
                   </g>
                 </svg>`
-            }
+      }
             
           </div>
     `;
@@ -514,3 +506,28 @@ const displayAttachOverlay = () => {
 };
 
 inputAttachments.addEventListener("click", displayAttachOverlay);
+
+const handleMeetingState = () => {
+  const meetingToken = localStorage.getItem('meetingToken');
+
+  if (meetingToken) {
+    sidebarContainer.style.display = "none";
+    backNav.style.display = "block";
+  } else {
+    sidebarContainer.style.display = "block";
+    backNav.style.display = "none";
+  }
+}
+
+handleMeetingState();
+
+async function gotojoinmeeting() {
+  window.location.href = "../authentication/join_meeting.html";
+}
+
+const handleEndCall = () => {
+  localStorage.removeItem("meetingToken");
+  gotojoinmeeting();
+}
+
+backNav.addEventListener("click", handleEndCall);

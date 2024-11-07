@@ -551,7 +551,6 @@ template.innerHTML = `
 
 class SideBar extends HTMLElement {
   menuText;
-
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: "open" });
@@ -566,6 +565,7 @@ class SideBar extends HTMLElement {
   get active() {
     return this.getAttribute("active");
   }
+
   set active(value) {
     return this.setAttribute("active", value);
   }
@@ -573,7 +573,13 @@ class SideBar extends HTMLElement {
   connectedCallback() {
     const hamburger = this.shadowRoot.getElementById("hamburger-icon");
     this.menuText = this.shadowRoot.querySelectorAll(".menu-text");
-    hamburger.addEventListener("click", this.handleMenuToggle);
+
+
+    if (hamburger) {
+      hamburger.addEventListener('click', this.toggleState); document.addEventListener('DOMContentLoaded', this.initialState.bind(this));
+      this.initialState();
+    } else { console.error('Element not found: hamburger-icon'); }
+
 
     switch (this.active) {
       case "dashboard":
@@ -611,11 +617,11 @@ class SideBar extends HTMLElement {
     }
   }
 
-  handleMenuToggle = () => {
-    this.menuText.forEach((span) => {
-      span.classList.toggle("display-text");
-    });
-  };
+  attributeChangedCallback() { this.updateMenuTextVisibility(); }
+  initialState = () => { const currentState = window.showState.getState(this.key); this.updateMenuTextVisibility(currentState); }
+  toggleState = () => { const newState = window.showState.toggle(); this.updateMenuTextVisibility(newState); }
+  updateMenuTextVisibility(state) { this.menuText.forEach((span) => { span.classList.toggle("display-text", state); }); }
+
 }
 
 customElements.define("side-bar", SideBar);
