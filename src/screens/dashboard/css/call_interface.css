@@ -144,9 +144,21 @@ ul {
   position: relative;
 }
 
+.copy-meeting-link {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  border-radius: 11px;
+  padding: 1vh 1vw;
+  background-color: #979797;
+}
+
 #add-icon,
-.add-btn,
-.each-user {
+.add-user-popup-add-btn,
+.each-user,
+.copy-meeting-link {
   cursor: pointer;
 }
 
@@ -232,10 +244,11 @@ ul {
   align-items: center;
 }
 
-.add-btn {
+.add-user-popup-add-btn {
   background-color: #22074a;
   width: 10vw;
   border: none;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   margin: 4vh auto 0 auto;
@@ -1072,12 +1085,21 @@ ul {
   font-size: 13px;
   font-weight: 500;
 }
+
 .desktop-msg-subtitle-txt {
   color: #dad9d9;
   font-family: Poppins-regular;
   font-size: 0.9rem;
   font-weight: 500;
 }
+
+.copy-meeting-link-txt {
+  color: #101623;
+  font-family: Poppins-regular;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .desktop-viewer {
   color: #fff;
   font-family: Poppins-regular;
@@ -1085,6 +1107,7 @@ ul {
   font-weight: 500;
   text-decoration: none;
 }
+
 .desktop-now-txt {
   color: #fff;
   font-family: Poppins-regular;

@@ -14,20 +14,24 @@
   </head>
 
   <body>
-     <!-- Top Control Bar -->
-     <header>
+    <!-- Top Control Bar -->
+    <header>
       <div class="icon-bar">
         <div>
-          <img src="../../assets/images/logo.png" alt="ShareAm_Logo"> 
+          <img src="../../assets/images/logo.png" alt="ShareAm_Logo" />
         </div>
-        <div>
-          Start Meeting | ShareAm
-        </div>
+        <div>Start Meeting | ShareAm</div>
       </div>
       <div id="control-box-parent" class="control-box">
-        <div id="minimize-button" class="minimize"> <img src="../../assets/icons/control_box/minimize.svg"></div>
-        <div id="maximize-button" class="maximize"><img src="../../assets/icons/control_box/maximize.svg"></div>
-        <div id="close-button" class="main-close-button"><img src="../../assets/icons/control_box/close.svg"></div>
+        <div id="minimize-button" class="minimize">
+          <img src="../../assets/icons/control_box/minimize.svg" />
+        </div>
+        <div id="maximize-button" class="maximize">
+          <img src="../../assets/icons/control_box/maximize.svg" />
+        </div>
+        <div id="close-button" class="main-close-button">
+          <img src="../../assets/icons/control_box/close.svg" />
+        </div>
       </div>
     </header>
     <!-- End Of Top Control Bar -->
@@ -180,7 +184,6 @@
       </aside>
       <div class="content">
         <div class="auth">
-
           <h2>Video calls for everyone</h2>
           <button class="btn-login" onclick="gotohome()" type="submit">
             Start a Meeting
@@ -188,9 +191,8 @@
           <!-- <auth-buttons onclick="gotohome()">
             <p slot="message">Start a Meeting</p>
           </auth-buttons> -->
-          <div class="links" style="text-align: center;">
+          <div class="links" style="text-align: center">
             Already have an account? <a href="./login.html">Log In </a>
-         
           </div>
           <div class="logUp-with-div">
             <span class="lines"></span>
@@ -199,15 +201,13 @@
             </div>
             <span class="lines"></span>
           </div>
-          <br>
+          <br />
           <form id="meetingForm">
             <div class="input-group">
-              <label for="meeting_id">Enter link to start meeting:</label>
+              <label for="meeting_id">Enter link to join meeting:</label>
               <input type="text" id="meeting_id" required />
             </div>
-            <button class="btn-login" type="submit">
-              Join
-            </button>
+            <button class="btn-login" type="submit">Join</button>
             <!-- <auth-buttons onclick="gotohome()">
               <p slot="message">Join</p>   onclick="gotohome()"
             </auth-buttons> -->
@@ -221,7 +221,6 @@
       </div>
     </div>
     <script>
-      
       async function gotoCallInterface() {
         window.location.href = "../dashboard/call_interface.html";
       }
@@ -230,13 +229,14 @@
         window.location.href = "../dashboard/dashboard.html";
       }
 
-      document.getElementById('meetingForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const meetingId = document.getElementById('meeting_id').value;
-        localStorage.setItem('meetingToken', meetingId)
-        gotoCallInterface()
-      });
-
+      document
+        .getElementById("meetingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const meetingId = document.getElementById("meeting_id").value;
+          localStorage.setItem("meetingToken", meetingId);
+          gotoCallInterface();
+        });
     </script>
     <script src="../../renderer.js"></script>
   </body>
