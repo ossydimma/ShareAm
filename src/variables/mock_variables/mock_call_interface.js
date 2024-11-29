@@ -123,6 +123,14 @@ export const participants = [
     status: "active",
     speaking: false,
   },
+
+  {
+    image: "../../assets/images/user 2.png",
+    microphone: true,
+    name: "Asiwaju Titi",
+    status: "active",
+    speaking: false,
+  },
 ];
 
 export const addUsers = [
