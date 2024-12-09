@@ -142,7 +142,9 @@
 
             <div class="action-btn-main-wrap">
               <ul class="action-btn-wrap">
-                <li class="action-btn smallscreenhidden-btn">
+
+                <!-- Share screen -->
+                <li class="action-btn smallscreenhidden-btn" id="share-screen-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="13"
@@ -778,7 +780,8 @@
                 </button>
               </form>
             </div>
-
+            <!-- to display the shared acreen -->
+            <video id="video" autoplay playsinline style="width: 100%; height: 90vh;"></video>
             <div id="participant-section" class="tab-content">
               <div class="participant-wrapper"></div>
             </div>

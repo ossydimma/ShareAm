@@ -22,6 +22,12 @@ contextBridge.exposeInMainWorld('showState', {
   setState: (value) => localStorage.setItem('showValue', value)
 });
 
+contextBridge.exposeInMainWorld('shareScreen', {
+  getSources: async () => {
+      return await ipcRenderer.invoke('get-sources');
+  }
+});
+
 
 
 // A SAMPLE ON HOW TO STORE INFORMATION IN LOCAL STORAGE

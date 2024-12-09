@@ -23,6 +23,87 @@ const backNav = document.getElementById("back-nav");
 const sidebarContainer = document.getElementById("sidebar-container");
 const addUser = document.querySelector(".add-user");
 
+const startScreenSharing = async () => {
+  try {
+    const sources = await window.shareScreen.getSources();
+    const screenSource = sources.find(source => source.name === 'Entire screen');
+    console.log('Screen Sources:', screenSource);
+  
+    if (screenSource){
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: {
+          mandatory: {
+            chromeMediaSourceId: screenSource.id,
+            chromeMediaSource: "desktop",
+          }
+        },
+        video: {
+          mandatory: {
+            chromeMediaSource: "desktop",
+            chromeMediaSourceId: screenSource.id,
+            maxFrameRate: 60
+          }
+        }
+     });
+      console.log('Stream:', stream);
+  
+      // const parentDiv = document.createElement("div");
+  
+      // parentDiv.innerHTML = `
+      //   <video id="shareVideo" autoplay playsinline style="width: 100%; height: 90vh;"></video>
+      // `;
+      // const screenVideo = parentDiv.children[0];
+      // console.log(screenVideo);
+  
+      const video = document.getElementById('video');
+      video.srcObject = stream;
+  
+    }  
+    
+  } catch (error) {
+    console.error('Error starting screen sharing:', error);
+  }
+
+
+}
+
+document.getElementById("share-screen-btn").addEventListener('click', startScreenSharing);
+
+// const shareScreenBtn = document.getElementById("share-screen-btn");
+
+// const screenVideo = document.getElementById("shareVideo");
+
+// Screen sharing code  starts here
+
+// const startScreenSharing = async () => {
+//   const parentDiv = document.createElement("div");
+  
+//   parentDiv.innerHTML = `
+//     <video id="shareVideo" autoplay playsinline style="width: 100%; height: 90vh;"></video>
+
+//   `;
+//   const screenVideo = parentDiv.children[0];
+//   console.log(screenVideo);
+//   try {
+    
+//     const stream = await navigator.mediaDevices.getDisplayMedia({ video : true, audio : true})
+//     console.log("Screen sharing started:", stream);
+
+//     screenVideo.srcObject = stream;
+//     screenVideo.play();
+//   } catch (error) {
+//       console.error("Error sharing screen:", error);
+//       alert( "Failed to share the screen. Make sure your browser supports screen sharing.");
+//   }
+
+// };
+
+// if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
+//   alert("Screen sharing is not supported in this browser");
+// } else {
+//   shareScreenBtn.addEventListener("click", startScreenSharing);
+// } // Screen sharing code ends here
+
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
 };

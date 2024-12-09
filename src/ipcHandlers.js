@@ -1,4 +1,4 @@
-const { BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const { BrowserWindow, ipcMain, nativeTheme, desktopCapturer } = require('electron');
 function registerIPCMainHandlers() {
 
   ipcMain.handle('dark-mode:toggle', () => {
@@ -46,6 +46,14 @@ function registerIPCMainHandlers() {
     console.log('New value:', newValue);
     return newValue;
   });
+
+  // For screen sharing
+  ipcMain.handle('get-sources', async () => {
+    // console.log('get-sources handler called');
+    const sources = await desktopCapturer.getSources({ types: ["window", "screen", "audio"] });
+    return sources;
+  });
+
 
 }
 module.exports = { registerIPCMainHandlers };
