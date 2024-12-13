@@ -547,3 +547,25 @@ const handleEndCall = () => {
 };
 
 backNav.addEventListener("click", handleEndCall);
+
+//-------------------------Heart Emoji Bubble------------------//
+
+const triggerHeart = document.getElementById("icon");
+
+
+triggerHeart.addEventListener("click", function animateIcon(e) {
+  const icon = e.target;
+  const rect = icon.getBoundingClientRect();
+
+  const heartCopy = icon.cloneNode(true);
+  heartCopy.classList.add("heart-copy");
+
+  heartCopy.style.left = `${rect.left + rect.width / 2}px`;
+  heartCopy.style.top = `${rect.top}px`;
+
+  document.body.appendChild(heartCopy);
+
+  heartCopy.addEventListener("animationend", () => {
+    heartCopy.remove();
+  });
+});
