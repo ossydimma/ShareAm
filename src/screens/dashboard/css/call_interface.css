@@ -263,6 +263,17 @@ ul {
   justify-content: center;
 }
 
+#localVideo {
+  border-radius: 11px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#wave-shadows {
+  position: absolute;
+}
+
 .wave-shadow-1 {
   height: 140px;
   width: 140px;
@@ -345,7 +356,6 @@ ul {
 
 .action-btn-main-wrap {
   width: 100%;
-  height: fit-content;
   position: absolute;
   bottom: 7%;
 }
@@ -360,8 +370,8 @@ ul {
 }
 
 .action-btn {
-  width: 33px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,7 +381,17 @@ ul {
 }
 
 .call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  background-color: #fff;
+  padding: 3vh 0.7vw;
+  border-radius: 17px;
+}
+
+#live-mic svg {
+  color: #dad9d9;
 }
 
 .video-call-bt {
@@ -469,7 +489,7 @@ ul {
   margin: auto;
   margin-bottom: 1vh;
   display: flex;
-  gap: 0.5vw;
+  gap: 0.7vw;
   align-items: center;
   justify-content: center;
 }
@@ -1287,6 +1307,12 @@ input:checked + .slider:before {
 
   .muilti-btn {
     display: block;
+  }
+
+  .action-btn-tooltip svg {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5vh;
   }
 
   .wave {
