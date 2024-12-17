@@ -656,3 +656,42 @@ toggleMicButton.addEventListener("click", () => {
     toggleMicButton.prepend(activeMicIcon);
   }
 });
+
+//-----------------Heart Emoji Bubble------------------//
+
+const triggerHeart = document.getElementById("trigger-heart");
+const heartContainer = document.getElementById("heart-container");
+const pathColor = document.getElementById("path-color");
+
+triggerHeart.addEventListener("click", function () {
+  pathColor.setAttribute("fill", "red");
+
+  setTimeout(() => {
+    pathColor.setAttribute("fill", "#DAD9D9");
+  }, 2000);
+
+  const heartCopy = triggerHeart.cloneNode(true);
+  heartCopy.classList.add("heart-copy");
+
+  const containerWidth = heartContainer.offsetWidth;
+  const containerHeight = heartContainer.offsetHeight;
+
+  const startX = Math.random() * containerWidth + 5;
+  const startY = containerHeight - 150;
+
+  heartCopy.style.left = `${startX}px`;
+  heartCopy.style.top = `${startY}px`;
+
+  const randomX = Math.random() * 100 - 50;
+  const randomY = Math.random() * -200 - 100;
+  const randomScale = Math.random() * 0.5 + 0.5;
+
+  heartCopy.style.animation = `bubble-up 2s ease-out forwards`;
+  heartCopy.style.transform = `translate(${randomX}px, ${randomY}px) scale(${randomScale})`;
+
+  heartContainer.appendChild(heartCopy);
+
+  heartCopy.addEventListener("animationend", () => {
+    heartCopy.remove();     
+  });
+});
