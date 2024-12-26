@@ -263,6 +263,17 @@ ul {
   justify-content: center;
 }
 
+#localVideo {
+  border-radius: 11px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#wave-shadows {
+  position: absolute;
+}
+
 .wave-shadow-1 {
   height: 140px;
   width: 140px;
@@ -345,7 +356,6 @@ ul {
 
 .action-btn-main-wrap {
   width: 100%;
-  height: fit-content;
   position: absolute;
   bottom: 7%;
 }
@@ -360,8 +370,8 @@ ul {
 }
 
 .action-btn {
-  width: 33px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,7 +381,17 @@ ul {
 }
 
 .call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  background-color: #fff;
+  padding: 3vh 0.7vw;
+  border-radius: 17px;
+}
+
+#live-mic svg {
+  color: #dad9d9;
 }
 
 .video-call-bt {
@@ -469,7 +489,7 @@ ul {
   margin: auto;
   margin-bottom: 1vh;
   display: flex;
-  gap: 0.5vw;
+  gap: 0.7vw;
   align-items: center;
   justify-content: center;
 }
@@ -1142,6 +1162,37 @@ input:checked + .slider:before {
 }
 /*------End of Toggle Switch Key---------*/
 
+
+/*-------------------------Heart Emoji Bubble------------------*/
+
+.heart-copy {
+  position: absolute;
+  left: 50%;
+  width: 28px;
+  height: 27px; 
+  transform: translate(-50%, 0);
+  opacity: 1;
+  animation: bubble-up 2s ease-out forwards;
+  transition: color 0.3s;
+}
+
+
+@keyframes bubble-up {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -150px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -250px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
   html {
@@ -1287,6 +1338,12 @@ input:checked + .slider:before {
 
   .muilti-btn {
     display: block;
+  }
+
+  .action-btn-tooltip svg {
+    display: flex;
+    margin: auto;
+    margin-top: 0.5vh;
   }
 
   .wave {
