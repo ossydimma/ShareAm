@@ -50,7 +50,7 @@ function registerIPCMainHandlers() {
   // For screen sharing
   ipcMain.handle('get-sources', async () => {
     // console.log('get-sources handler called');
-    const sources = await desktopCapturer.getSources({ types: ["window", "screen", "audio"] });
+    const sources = await desktopCapturer.getSources({ types: [ "window", "screen", "audio" ] });
     return sources;
   });
 

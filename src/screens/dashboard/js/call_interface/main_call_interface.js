@@ -22,6 +22,7 @@ const eachUserWrapper = document.getElementById("each-user-wrapper");
 const backNav = document.getElementById("back-nav");
 const sidebarContainer = document.getElementById("sidebar-container");
 const addUser = document.querySelector(".add-user");
+const localVideo = document.getElementById("localVideo");
 
 const startScreenSharing = async () => {
   try {
@@ -31,12 +32,12 @@ const startScreenSharing = async () => {
   
     if (screenSource){
       const stream = await navigator.mediaDevices.getUserMedia({
-        audio: {
-          mandatory: {
-            chromeMediaSourceId: screenSource.id,
-            chromeMediaSource: "desktop",
-          }
-        },
+        // audio: {
+        //   mandatory: {
+        //     chromeMediaSourceId: screenSource.id,
+        //     chromeMediaSource: "desktop",
+        //   }
+        // },
         video: {
           mandatory: {
             chromeMediaSource: "desktop",
@@ -45,18 +46,8 @@ const startScreenSharing = async () => {
           }
         }
      });
-      console.log('Stream:', stream);
-  
-      // const parentDiv = document.createElement("div");
-  
-      // parentDiv.innerHTML = `
-      //   <video id="shareVideo" autoplay playsinline style="width: 100%; height: 90vh;"></video>
-      // `;
-      // const screenVideo = parentDiv.children[0];
-      // console.log(screenVideo);
-  
-      const video = document.getElementById('video');
-      video.srcObject = stream;
+      localVideo.srcObject = stream;
+      console.log("video", video);
   
     }  
     
@@ -68,41 +59,6 @@ const startScreenSharing = async () => {
 }
 
 document.getElementById("share-screen-btn").addEventListener('click', startScreenSharing);
-
-// const shareScreenBtn = document.getElementById("share-screen-btn");
-
-// const screenVideo = document.getElementById("shareVideo");
-
-// Screen sharing code  starts here
-
-// const startScreenSharing = async () => {
-//   const parentDiv = document.createElement("div");
-  
-//   parentDiv.innerHTML = `
-//     <video id="shareVideo" autoplay playsinline style="width: 100%; height: 90vh;"></video>
-
-//   `;
-//   const screenVideo = parentDiv.children[0];
-//   console.log(screenVideo);
-//   try {
-    
-//     const stream = await navigator.mediaDevices.getDisplayMedia({ video : true, audio : true})
-//     console.log("Screen sharing started:", stream);
-
-//     screenVideo.srcObject = stream;
-//     screenVideo.play();
-//   } catch (error) {
-//       console.error("Error sharing screen:", error);
-//       alert( "Failed to share the screen. Make sure your browser supports screen sharing.");
-//   }
-
-// };
-
-// if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
-//   alert("Screen sharing is not supported in this browser");
-// } else {
-//   shareScreenBtn.addEventListener("click", startScreenSharing);
-// } // Screen sharing code ends here
 
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
@@ -633,7 +589,7 @@ backNav.addEventListener("click", handleEndCall);
 const activateCameraIcon = document.getElementById("camera-icon");
 const toggleMicButton = document.getElementById("live-mic");
 const activeMicIcon = document.getElementById("active-mic-icon");
-const localVideo = document.getElementById("localVideo");
+// const localVideo = document.getElementById("localVideo");
 const waveShadow = document.getElementById("wave-shadows");
 
 let localStream;
@@ -679,7 +635,7 @@ activateCameraIcon.addEventListener("click", async () => {
                   <path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7l-86.4-67.7 13.8 9.2c9.8 6.5 22.4 7.2 32.9 1.6s16.9-16.4 16.9-28.2l0-256c0-11.8-6.5-22.6-16.9-28.2s-23-5-32.9 1.6l-96 64L448 174.9l0 17.1 0 128 0 5.8-32-25.1L416 128c0-35.3-28.7-64-64-64L113.9 64 38.8 5.1zM407 416.7L32.3 121.5c-.2 2.1-.3 4.3-.3 6.5l0 256c0 35.3 28.7 64 64 64l256 0c23.4 0 43.9-12.6 55-31.3z"/></svg>`;
     }
   } catch (error) {
-    statuss.textContent = "Error accessing media devices.";
+    // statuss.textContent = "Error accessing media devices.";
     console.error("Error toggling camera:", error);
   }
 });
