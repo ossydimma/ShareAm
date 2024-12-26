@@ -24,41 +24,45 @@ const sidebarContainer = document.getElementById("sidebar-container");
 const addUser = document.querySelector(".add-user");
 const localVideo = document.getElementById("localVideo");
 
+// let isSharing = false;
+
 const startScreenSharing = async () => {
-  try {
-    const sources = await window.shareScreen.getSources();
-    const screenSource = sources.find(source => source.name === 'Entire screen');
-    console.log('Screen Sources:', screenSource);
-  
-    if (screenSource){
-      const stream = await navigator.mediaDevices.getUserMedia({
-        // audio: {
-        //   mandatory: {
-        //     chromeMediaSourceId: screenSource.id,
-        //     chromeMediaSource: "desktop",
-        //   }
-        // },
-        video: {
-          mandatory: {
-            chromeMediaSource: "desktop",
-            chromeMediaSourceId: screenSource.id,
-            maxFrameRate: 60
-          }
-        }
-     });
-      localVideo.srcObject = stream;
-      console.log("video", video);
-  
-    }  
-    
-  } catch (error) {
-    console.error('Error starting screen sharing:', error);
+  if (localVideo.srcObject === null) {
+    try {
+      const sources = await window.shareScreen.getSources();
+      const screenSource = sources.find(
+        (source) => source.name === "Entire screen"
+      );
+
+      if (screenSource) {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          // audio: {
+          //   mandatory: {
+          //     chromeMediaSourceId: screenSource.id,
+          //     chromeMediaSource: "desktop",
+          //   }
+          // },
+          video: {
+            mandatory: {
+              chromeMediaSource: "desktop",
+              chromeMediaSourceId: screenSource.id,
+              maxFrameRate: 60,
+            },
+          },
+        });
+        localVideo.srcObject = stream;
+      }
+    } catch (error) {
+      console.error("Error starting screen sharing:", error);
+    }
+  } else {
+    localVideo.srcObject = null;
   }
+};
 
-
-}
-
-document.getElementById("share-screen-btn").addEventListener('click', startScreenSharing);
+document
+  .getElementById("share-screen-btn")
+  .addEventListener("click", startScreenSharing);
 
 const getTotalParticipants = () => {
   totalParticipants.textContent = participants.length;
@@ -729,6 +733,6 @@ triggerHeart.addEventListener("click", function () {
   heartContainer.appendChild(heartCopy);
 
   heartCopy.addEventListener("animationend", () => {
-    heartCopy.remove();     
+    heartCopy.remove();
   });
 });
